@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "j3-smusic",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.1.4",
+    "@angular/cdk": "^10.2.4",
     "@angular/common": "~10.1.4",
     "@angular/compiler": "~10.1.4",
     "@angular/core": "~10.1.4",
@@ -19,6 +20,12 @@
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@types/chart.js": "^2.9.25",
+    "angular-bootstrap-md": "^10.0.0",
+    "animate.css": "^4.1.1",
+    "chart.js": "^2.5.0",
+    "hammerjs": "^2.0.8",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

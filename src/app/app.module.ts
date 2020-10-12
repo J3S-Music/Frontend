@@ -1,18 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { EinstellungenComponent } from './einstellungen/einstellungen.component';
+import { SessionBeitretenComponent } from './session-beitreten/session-beitreten.component';
+import { SessionErstellenComponent } from './session-erstellen/session-erstellen.component';
+import { HauptmenuComponent } from './hauptmenu/hauptmenu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EinstellungenComponent,
+    SessionBeitretenComponent,
+    SessionErstellenComponent,
+    HauptmenuComponent,
+  
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot(),
+   
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
