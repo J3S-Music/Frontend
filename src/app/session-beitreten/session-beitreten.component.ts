@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./session-beitreten.component.scss']
 })
 export class SessionBeitretenComponent implements OnInit {
-
+            
   constructor() { }
 
   ngOnInit(): void {
