@@ -10,6 +10,7 @@ import { EinstellungenComponent } from './einstellungen/einstellungen.component'
 import { SessionBeitretenComponent } from './session-beitreten/session-beitreten.component';
 import { SessionErstellenComponent } from './session-erstellen/session-erstellen.component';
 import { HauptmenuComponent } from './hauptmenu/hauptmenu.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HauptmenuComponent } from './hauptmenu/hauptmenu.component';
     SessionBeitretenComponent,
     SessionErstellenComponent,
     HauptmenuComponent,
+    LoginComponent,
   
 
   ],

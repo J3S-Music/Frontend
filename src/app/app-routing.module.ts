@@ -4,13 +4,16 @@ import {SessionErstellenComponent} from './session-erstellen/session-erstellen.c
 import {SessionBeitretenComponent} from './session-beitreten/session-beitreten.component';
 import {EinstellungenComponent} from  './einstellungen/einstellungen.component';
 import {HauptmenuComponent} from './hauptmenu/hauptmenu.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  {path: 'CreateSession', component: SessionErstellenComponent},
-  {path: 'JoinSession', component: SessionBeitretenComponent},
-  {path: 'Settings', component: EinstellungenComponent},
-  {path: 'Mainmenu', component: HauptmenuComponent},
-  { path: '',   redirectTo: '/Mainmenu', pathMatch: 'full' }, // redirect to mainmenu-component
+  {path: 'createSession', component: SessionErstellenComponent},
+  {path: 'joinSession', component: SessionBeitretenComponent},
+  {path: 'settings', component: EinstellungenComponent},
+  {path: 'mainMenu', component: HauptmenuComponent},
+  { path: 'login', component: LoginComponent},
+  { path: '',   redirectTo: '/mainMenu', pathMatch: 'full' }, // redirect to mainmenu-component
+
 
 
 
