@@ -7,12 +7,12 @@ import {HauptmenuComponent} from './hauptmenu/hauptmenu.component';
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  {path: 'createSession', component: SessionErstellenComponent},
-  {path: 'joinSession', component: SessionBeitretenComponent},
+  {path: 'rooms', component: SessionErstellenComponent},
+  {path: 'join', component: SessionBeitretenComponent},
   {path: 'settings', component: EinstellungenComponent},
-  {path: 'mainMenu', component: HauptmenuComponent},
-  { path: 'login', component: LoginComponent},
-  { path: '',   redirectTo: '/mainMenu', pathMatch: 'full' }, // redirect to mainmenu-component
+  {path: 'home', component: HauptmenuComponent},
+  { path: '', component: LoginComponent},
+  { path: 'home',   redirectTo: '/mainMenu', pathMatch: 'full' }, // redirect to mainmenu-component
 
 
 
