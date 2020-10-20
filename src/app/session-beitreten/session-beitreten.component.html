@@ -1,5 +1,12 @@
 <div class="content" role="main">
 
+  <a *ngFor="join"
+  [routerLink]="['/join', join.id]">
+  {{ join.id }}
+  
+</a>
+
+
   <ul  class="list-group list-group-flush">
     <li   class="list-group-item" >
       <div   class="md-form">

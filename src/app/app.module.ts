@@ -11,6 +11,8 @@ import { SessionBeitretenComponent } from './session-beitreten/session-beitreten
 import { SessionErstellenComponent } from './session-erstellen/session-erstellen.component';
 import { HauptmenuComponent } from './hauptmenu/hauptmenu.component';
 import { LoginComponent } from './login/login.component';
+import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { LoginComponent } from './login/login.component';
     SessionErstellenComponent,
     HauptmenuComponent,
     LoginComponent,
+    AvatarSelectionComponent,
   
 
   ],
@@ -27,6 +30,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
+
    
   ],
   bootstrap: [AppComponent]
