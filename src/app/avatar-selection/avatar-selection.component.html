@@ -1,33 +1,55 @@
 <div class="content" role="main">
 
-    <h1 textalign="center" style="font-size:270%;"  >Select an avatar</h1>
 
-<br>
-    <div class="hiddenradio" style="margin-left: auto;">
-        <label>
-          <input type="radio" name="avatar" value="small" checked>
-          <img src="../assets/img_avatar1.png" class="avatar">
-        </label>
-        
-        <label style="right: auto;">
-          <input type="radio" name="avatar" value="big">
-          <img src="../assets/img_avatar2.png" class="avatar">
-        </label>
+  <!-- Title -->
+  <h1 textalign="center" style="font-size:270%;">Select an avatar</h1>
 
-        <label>
-          <input type="radio" name="avatar" value="small" checked>
-          <img src="../assets/img_avatar3.png" class="avatar">
-        </label>
-        
-        <label>
-          <input type="radio" name="avatar" value="big">
-          <img src="../assets/img_avatar4.png" class="avatar">
-        </label>
+  <br>
 
-        <label>
-            <input type="radio" name="avatar" value="big">
-            <img src="../assets/img_avatar5.png" class="avatar">
-          </label>
-        </div>
+
+  <!-- Select your Avatar -->
+  <div class="hiddenradio custom-control custom-radio custom-control-inline">
+    <label>
+      <input type="radio" class="custom-control-input" id="defaultInline1" name="avatar" mdbInput>
+      <img src="../assets/img_avatar1.png" class="avatar">
+    </label>
+
+    <label>
+      <input type="radio" class="custom-control-input" id="defaultInline2" name="avatar" mdbInput>
+      <img src="../assets/img_avatar2.png" class="avatar">
+    </label>
+
+    <label>
+      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <img src="../assets/img_avatar3.png" class="avatar">
+    </label>
+  </div>
     
-    </div>
+  <div class="hiddenradio custom-control custom-radio custom-control-inline">
+    <label>
+      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <img src="../assets/img_avatar4.png" class="avatar">
+    </label>
+
+    <label>
+      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <img src="../assets/img_avatar5.png" class="avatar">
+    </label>
+
+    <label>
+      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <img src="../assets/img_avatar5.png" class="avatar">
+    </label>
+  </div>
+
+
+
+  <!-- Safe your selected Avatar -->
+  <div class="card-container">
+    <a class="card" target="_self" routerLink="/settings">
+      <span style="font-size: 20px;">Safe</span>
+    </a>
+  </div>
+
+
+</div>

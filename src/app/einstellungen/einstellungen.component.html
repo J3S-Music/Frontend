@@ -1,85 +1,77 @@
 <div class="content" role="main">
 
 
-<a> 
-    
-    <img
-    width="230"
-    height="230"
-    alt="googleLogin"
-    class=""
-    style="vertical-align:middle;margin:-5% -20%"
-    target="_self" rel="noopener" routerLink="/avatar"
+  <a>
 
-    src="../assets/Avatar_blanc.png"
-  a>
+    <!-- (default) avatar -->
+    <img width="230" height="230" alt="googleLogin" class="" style="vertical-align:middle;margin:-5% -20%"
+      target="_self" rel="noopener" routerLink="/avatar" src="../assets/Avatar_blanc.png" a>
 
-    <a class="list-group list-group-flush"style ="vertical-align:middle;margin:-5% 0%" >
+    <!-- Username / UserID -->
+    <a class="list-group list-group-flush" style="vertical-align:middle;margin:-5% 0%">
       <li class="list-group-item">
-        <h6  style ="color:rgb(0, 0, 0);"> User-ID:&nbsp; &nbsp; &nbsp;</h6>
+        <h6 style="color:rgb(0, 0, 0);"> User-ID:&nbsp; &nbsp; &nbsp;</h6>
       </li>
       <li class="list-group-item">
-        <h6  style ="color:rgb(0, 0, 0)"> Username:&nbsp; &nbsp; &nbsp;</h6>
+        <h6 style="color:rgb(0, 0, 0)"> Username:&nbsp; &nbsp; &nbsp;</h6>
       </li>
     </a>
-<br>
-<br>
-<br>
- 
 
+    <br>
+    <br>
+    <br>
 
-    
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img style="float:left;" width = 10% height = 10% src="../assets/spotify.png" class="img-fluid" alt="spotify" >
-                <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
-          </li>
-          <li class="list-group-item">
-            <img style="float:left;" width = 11% height = 11% src="../assets/youtube.png" class="img-fluid" alt="youtube">
-            <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
-          </li>
-          <li class="list-group-item">
-            <img style="float:left;" width = 10% height = 10% src="../assets/applemusic.png" class="img-fluid" alt="apple music">
-            <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
-          </li>
-          <li class="list-group-item">
-            <img style="float:left;"width = 10% height = 10% src="../assets/soundcloud.png"  class="img-fluid"   alt="soundcloud">
-            <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>             
-            </li>
-        </ul>
-        <br>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-        <h6  style ="color:rgb(0, 0, 0)"> Set your Default :</h6>
+    <!-- Connections -->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <img style="float:left;" width=10% height=10% src="../assets/spotify.png" class="img-fluid" alt="spotify">
+        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
       </li>
-        </ul>
+      <li class="list-group-item">
+        <img style="float:left;" width=11% height=11% src="../assets/youtube.png" class="img-fluid" alt="youtube">
+        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
+      </li>
+      <li class="list-group-item">
+        <img style="float:left;" width=10% height=10% src="../assets/applemusic.png" class="img-fluid"
+          alt="apple music">
+        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
+      </li>
+      <li class="list-group-item">
+        <img style="float:left;" width=10% height=10% src="../assets/soundcloud.png" class="img-fluid" alt="soundcloud">
+        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
+      </li>
+    </ul>
+    <br>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h6 style="color:rgb(0, 0, 0)"> Set your Default :</h6>
+      </li>
+    </ul>
 
 
-        
+    <!-- Set Default -->
+    <div class="hiddenradio custom-control custom-radio custom-control-inline">
+      <label>
+        <input type="radio" class="custom-control-input" id="defaultInline1" name="setDefault" mdbInput>
+        <img width=40% height=60% src="../assets/spotify.png" class="custom-control-inline">
+      </label>
 
-        <div class="hiddenradio custom-control-inline">
-          <label>
-            <input type="radio" name="setDefault">
-            <img  width = 15% height = 15% src="../assets/spotify.png" class="custom-control-inline">
-          </label>
-          
-          <label>
-            <input type="radio" name="setDefault">
-            <img  width = 15% height = 15% src="../assets/youtube.png" class="custom-control-inline">
-          </label>
-  
-          <label>
-            <input type="radio" name="setDefault">
-            <img  width = 15% height = 15% src="../assets/applemusic.png" class="custom-control-inline">
-          </label>
-          
-          <label>
-            <input type="radio" name="setDefault">
-            <img  width = 15% height = 15% src="../assets/soundcloud.png" class="custom-control-inline">
-          </label>
-          </div>
-  
-        
-</a>
+      <label>
+        <input type="radio" class="custom-control-input" id="defaultInline1" name="setDefault" mdbInput>
+        <img width=80% height=50% src="../assets/youtube.png" class="custom-control-inline">
+      </label>
+
+      <label>
+        <input type="radio" class="custom-control-input" id="defaultInline1" name="setDefault" mdbInput>
+        <img width=50% height=60% src="../assets/applemusic.png" class="custom-control-inline">
+      </label>
+
+      <label>
+        <input type="radio" class="custom-control-input" id="defaultInline1" name="setDefault" mdbInput>
+        <img width=100% height=50% src="../assets/soundcloud.png" class="custom-control-inline">
+      </label>
+    </div>
+
+  </a>
 
 </div>
