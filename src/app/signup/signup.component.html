@@ -1,25 +1,25 @@
 <div class="content" role="main">
 
-    <div class = "box">
+    <div class="box">
         <form action="">
             <div class="form-group column">
 
                 <!-- Enter Name -->
                 <div class="md-form">
                     <input mdbInput placeholder="Name" type="text" id="form58" class="form-control">
-                    <label style= color:black for="form58">Name</label>
+                    <label style=color:black for="form58">Name</label>
                 </div>
 
                 <!-- Enter E-Mail -->
                 <div class="md-form">
                     <input mdbInput placeholder="E-Mail" type="text" id="form58" class="form-control">
-                    <label style= color:black for="form58">E-Mail</label>
+                    <label style=color:black for="form58">E-Mail</label>
                 </div>
 
                 <!-- Password -->
                 <div class="md-form">
                     <input mdbInput placeholder="Password" type="text" id="form58" class="form-control">
-                    <label style= color:black for="form58">Password</label>
+                    <label style=color:black for="form58">Password</label>
 
                     <br>
                     <input mdbInput placeholder="Repeat password" type="text" id="form58" class="form-control">
@@ -28,11 +28,11 @@
         </form>
     </div>
 
-    <!-- Sign-up Button -->
+    <!-- Submit Button -->
     <div class="card-container">
-        <a class="card" target="_self" rel="noopener" routerLink="/home">
-            <span style="font-size: 20px;">Sign up</span>
-        </a>
+        <button (click)="signUp()" class="card" target="_self" rel="noopener" routerLink="/home">
+            <span style="font-size: 20px;">Submit</span>
+        </button>
     </div>
 
 </div>

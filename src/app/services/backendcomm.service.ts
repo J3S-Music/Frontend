@@ -27,12 +27,13 @@ export class BackendcommService {
   }
 
 
-  singUp(password: String, name: String, email: String) {
+  signUp(password: String, name: String, email: String) {
     var body = {
       'password': password,
       'name': name,
       'email': email,
-      }
+      };
+      console.log('test');
     let promise = new Promise((resolve, reject) => {
       this.http.post('https://api.predic8.de/shop/products/',body)
         .toPromise()

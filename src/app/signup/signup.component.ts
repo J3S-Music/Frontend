@@ -7,13 +7,27 @@ import{ BackendcommService } from '../services/backendcomm.service';  //service 
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: BackendcommService) { }              //Service einfügen
+
+  public name = 'blablabla1';
+  public email = 'blablabla2';
+  public password = 'blablabla3';
 
   ngOnInit(): void {
   }
 
   signUp(){
   
+    this.service.signUp(this.name, this.email, this.password)
+
+    .then(res => {
+      // Success
+      console.log(res);
+      })
+      
+      .catch(error =>{
+        console.log(error)                                        //error werfen
+      })                                                          //resolve-> gehts in then bei catch also fehler reject
   }
 }
 
