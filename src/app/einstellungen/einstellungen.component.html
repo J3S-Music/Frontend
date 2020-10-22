@@ -3,17 +3,18 @@
 
   <a>
 
-    <!-- (default) avatar -->
-    <img width="230" height="230" alt="googleLogin" class="" style="vertical-align:middle;margin:-5% -20%"
-      target="_self" rel="noopener" routerLink="/avatar" src="../assets/Avatar_blanc.png" a>
-
+    <div>
+      <!-- (default) avatar -->
+      <img alt="googleLogin" class="avatar" style="vertical-align:middle;" target="_self" rel="noopener"
+        routerLink="/avatar" src={{avatar}} />
+    </div>
     <!-- Username / UserID -->
-    <a class="list-group list-group-flush" style="vertical-align:middle;margin:-5% 0%">
+    <a class="list-group list-group-flush" style="vertical-align:middle;margin-top:2%">
       <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0);"> User-ID:&nbsp; &nbsp; &nbsp;</h6>
+        <h6 style="color:rgb(0, 0, 0);"> User-ID: {{userid}}</h6>
       </li>
       <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0)"> Username:&nbsp; &nbsp; &nbsp;</h6>
+        <h6 style="color:rgb(0, 0, 0)"> Name: {{name}}</h6>
       </li>
     </a>
 
@@ -79,6 +80,9 @@
         <span style="font-size: 20px;">submit</span>
       </a>
     </div>
+    <button (click)="test()">
+      Test
+    </button>
   </a>
 
 

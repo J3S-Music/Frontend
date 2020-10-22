@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { SignupComponent } from './signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
+    HttpClientModule,
 
    
   ],
