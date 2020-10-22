@@ -12,6 +12,8 @@ import { SessionErstellenComponent } from './session-erstellen/session-erstellen
 import { HauptmenuComponent } from './hauptmenu/hauptmenu.component';
 import { LoginComponent } from './login/login.component';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.co
     HauptmenuComponent,
     LoginComponent,
     AvatarSelectionComponent,
+    SigninComponent,
+    SignupComponent,
   
 
   ],

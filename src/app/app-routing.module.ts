@@ -7,6 +7,8 @@ import {HauptmenuComponent} from './hauptmenu/hauptmenu.component';
 import {LoginComponent} from './login/login.component';
 import { AvatarComponent } from 'ngx-avatar';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent} from './signin/signin.component';
 
 const routes: Routes = [
   {path: 'rooms', component: SessionErstellenComponent},
@@ -18,11 +20,8 @@ const routes: Routes = [
   {path: 'rooms/:id', component: SessionErstellenComponent},
   {path: 'join/:id', component: SessionBeitretenComponent},
   {path: 'avatar', component: AvatarSelectionComponent},
-
-
-
-
-
+  {path: 'signin', component: SigninComponent},
+  {path: 'signup', component: SignupComponent},
 ];
 
 @NgModule({
