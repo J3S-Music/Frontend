@@ -9,6 +9,7 @@ import { AvatarComponent } from 'ngx-avatar';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent} from './signin/signin.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 const routes: Routes = [
   {path: 'rooms', component: SessionErstellenComponent},
@@ -22,6 +23,12 @@ const routes: Routes = [
   {path: 'avatar', component: AvatarSelectionComponent},
   {path: 'signin', component: SigninComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'playlist', component: PlaylistComponent},
+
+
+
+
+
 ];
 
 @NgModule({

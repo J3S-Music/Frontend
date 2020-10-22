@@ -15,6 +15,8 @@ import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.co
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaylistComponent } from './playlist/playlist.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     AvatarSelectionComponent,
     SigninComponent,
     SignupComponent,
+    PlaylistComponent,
   
 
   ],
