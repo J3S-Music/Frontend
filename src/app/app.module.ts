@@ -17,6 +17,9 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaylistComponent } from './playlist/playlist.component';
 
+import {CookieService} from 'ngx-cookie-service';
+
+
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 
    
   ],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

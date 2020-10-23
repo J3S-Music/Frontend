@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackendcommService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , private cookieService:CookieService) { }
 
 
   getData() {
+    var userID = this.cookieService.get("UserID");
     let promise = new Promise((resolve, reject) => {
-      this.http.get('https://api.predic8.de/shop/products/')
+      this.http.get('http://localhost:8080/users/'+userID)
         .toPromise()
         .then(
           res => { // Success
@@ -27,15 +29,17 @@ export class BackendcommService {
   }
 
 
-  signUp(password: String, name: String, email: String) {
+  signUp( name: String, email: String, password: String) {
     var body = {
       'password': password,
       'name': name,
       'email': email,
-      };
+      avatar: {
+        'avatarID': 1
+      }};
       console.log('test');
     let promise = new Promise((resolve, reject) => {
-      this.http.post('https://api.predic8.de/shop/products/',body)
+      this.http.post('http://localhost:8080/users',body)
         .toPromise()
         .then(
           res => { // Success

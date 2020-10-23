@@ -17,23 +17,23 @@ public avatar = '../assets/' + 'img_avatar4.png';
 
 
 //*****************************************GET BEFEHL*************************************************/
-  ngOnInit(): void {
-      this.service.getData()
-  
-      .then(res => {
-        // Success
-        this.name = res['products'][1]['name'];
-        this.userid = res['products'][1]['product_url'];
-        //this.avatar = '../assets/' + res['user']['avatar'];
-        console.log(res['products']);
-        })
-        
-        .catch(error =>{
-          console.log(error +' Keine userdaten')                  //error werfen
-        })                                                        //resolve-> gehts in then bei catch also fehler reject
-  
+ngOnInit(): void {
+  this.service.getData()
+
+  .then(res => {
+    // Success
+    this.name = res['name'];
+    this.userid = res['userID'];
+    //this.avatar = '../assets/' + res['user']['avatar'];
+    //console.log(res['products']);
+    })
     
-  }
+    .catch(error =>{
+      console.log(error +' Keine userdaten')                  //error werfen
+    })                                                        //resolve-> gehts in then bei catch also fehler reject
+
+
+}
 
 
   test(){
