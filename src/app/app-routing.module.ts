@@ -5,7 +5,6 @@ import {SessionBeitretenComponent} from './session-beitreten/session-beitreten.c
 import {EinstellungenComponent} from  './einstellungen/einstellungen.component';
 import {HauptmenuComponent} from './hauptmenu/hauptmenu.component';
 import {LoginComponent} from './login/login.component';
-import { AvatarComponent } from 'ngx-avatar';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent} from './signin/signin.component';
@@ -16,19 +15,14 @@ const routes: Routes = [
   {path: 'join', component: SessionBeitretenComponent},
   {path: 'settings', component: EinstellungenComponent},
   {path: 'home', component: HauptmenuComponent},
-  { path: '', component: LoginComponent},
-  { path: 'home',   redirectTo: '/mainMenu', pathMatch: 'full' }, // redirect to mainmenu-component
+  { path: 'login', component: LoginComponent},
+  { path: '',   redirectTo: '/login', pathMatch: 'full' }, // redirect to mainmenu-component
   {path: 'rooms/:id', component: SessionErstellenComponent},
   {path: 'join/:id', component: SessionBeitretenComponent},
   {path: 'avatar', component: AvatarSelectionComponent},
   {path: 'signin', component: SigninComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'playlist', component: PlaylistComponent},
-
-
-
-
-
 ];
 
 @NgModule({

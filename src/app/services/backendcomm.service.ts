@@ -72,6 +72,24 @@ export class BackendcommService {
     return promise;
   }
 
-
-
+  changeAvatar(avatarID: number){
+    var userID = this.cookieService.get("UserID");
+    var body = {
+      avatar: {
+        'avatarID': avatarID
+      }};
+      let promise = new Promise((resolve, reject) => {
+        this.http.put('http://localhost:8080/users/'+userID,body)
+          .toPromise()
+          .then(
+            res => { // Success
+              resolve(res);
+            },
+            error => { // Error Serverfehler
+              reject(error)
+            }
+          );
+      });
+      return promise;
+  }
 }

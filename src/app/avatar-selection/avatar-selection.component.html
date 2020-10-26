@@ -8,7 +8,8 @@
 
 
   <!-- Select your Avatar -->
-  <div class="hiddenradio custom-control custom-radio custom-control-inline">
+  <div class="hiddenradio custom-control custom-radio ">
+    <div class="custom-control-inline">
     <label>
       <input type="radio" class="custom-control-input" id="defaultInline1" name="avatar" mdbInput>
       <img src="../assets/img_avatar1.png" class="avatar">
@@ -23,36 +24,33 @@
       <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
       <img src="../assets/img_avatar3.png" class="avatar">
     </label>
-
   </div>
-    
-  <div class="hiddenradio custom-control custom-radio custom-control-inline">
+  <div class="custom-control-inline">
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline4" name="avatar" mdbInput>
       <img src="../assets/img_avatar4.png" class="avatar">
     </label>
 
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline5" name="avatar" mdbInput>
       <img src="../assets/img_avatar5.png" class="avatar">
     </label>
 
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline6" name="avatar" mdbInput>
       <img src="../assets/img_avatar6.png" class="avatar">
     </label>
-
-    
+  </div>
   </div>
 
 
 
   <!-- Submit your selected Avatar -->
   <div class="card-container">
-    <a class="card" target="_self" routerLink="/settings">
-      <span style="font-size: 20px;">submit</span>
-    </a>
-  </div>
-
+    <button (click)="changeAvatar()" class="card" target="_self" rel="noopener" routerLink="/settings">
+        <span style="font-size: 20px;">Submit</span>
+    </button>
+    <button type="submit">Submit</button>
+</div>
 
 </div>

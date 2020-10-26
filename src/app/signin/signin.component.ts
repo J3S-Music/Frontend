@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BackendcommService } from '../services/backendcomm.service';
+import { Router } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @Component({
@@ -17,7 +19,11 @@ export class SigninComponent implements OnInit {
 
 
 
-  constructor(private service: BackendcommService, private cookieService:CookieService) { }
+  constructor(
+    private service: BackendcommService,
+    private cookieService:CookieService,
+    private router:Router,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +42,7 @@ export class SigninComponent implements OnInit {
         this.cookieValue=res;
         console.log(this.cookieValue);
         this.cookieService.set('UserID', this.cookieValue);
+        this.router.navigate(['/home']);
         })
         .catch(error =>{
           console.log(error)                                        //error werfen
