@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '@angular/core';
 import{ BackendcommService } from '../services/backendcomm.service';  //service importieren
 import {CookieService} from 'ngx-cookie-service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -9,29 +10,53 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class SignupComponent implements OnInit {
   public cookieValue;
-  constructor(private service: BackendcommService, private cookieService:CookieService) { }              //Service einfügen
+  public form: FormGroup;
 
-  public name = 'blablabla1';
-  public email = 'blablabla2';
-  public password = 'blablabla3';
+
+  FormName= new FormControl('');
+  FormEmail= new FormControl('');
+  FormPassword1= new FormControl('');
+  FormPassword2= new FormControl('');
+
+
+  constructor(private service: BackendcommService, private cookieService:CookieService, private fb: FormBuilder) { }              //Service einfügen
 
   ngOnInit(): void {
   }
 
+  checkPasswords(pw1,pw2) { 
+    if(pw1===pw2){
+      return true;
+    }
+    return false;
+  }
+
   signUp(){
+    let pw1 = this.FormPassword1.value;
+    let pw2 = this.FormPassword2.value;
+    let name = this.FormName.value;
+    let email = this.FormEmail.value;
     
-    this.service.signUp(this.name, this.email, this.password)
-    
-    .then(res=> {
-      // Success
-      this.cookieValue=res;
-      console.log(this.cookieValue);
-      this.cookieService.set('UserID', this.cookieValue);
-      })
-      
-      .catch(error =>{
-        console.log(error)                                        //error werfen
-      })                                                          //resolve-> gehts in then bei catch also fehler reject
+      if(pw1==="" || pw2===""|| name===""||email===""){
+        console.log("Please fill in all requiered fields!");
+      }else{
+        if(this.checkPasswords(pw1,pw2)){
+          this.service.signUp(name, email, pw1)
+              .then(res=> {
+          // Success
+          this.cookieValue=res;
+          console.log(this.cookieValue);
+          this.cookieService.set('UserID', this.cookieValue);
+          })
+          
+          .catch(error =>{
+            console.log(error)                                        //error werfen
+          })
+        }
+        else{
+          console.log("Passwords dont match!")
+        }
+      }
   }
 }
 

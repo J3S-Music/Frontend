@@ -1,31 +1,29 @@
 <div class="content" role="main">
-
     <div class="box">
-        <form action="">
             <div class="form-group column">
-
                 <!-- Enter Name -->
                 <div class="md-form">
-                    <input mdbInput placeholder="Name" type="text" id="form58" class="form-control">
+                    <input mdbInput placeholder="Name" type="text" id="form58" class="form-control" [formControl]="FormName">
                     <label style=color:black for="form58">Name</label>
                 </div>
 
                 <!-- Enter E-Mail -->
                 <div class="md-form">
-                    <input mdbInput placeholder="E-Mail" type="text" id="form58" class="form-control">
+                    <input mdbInput placeholder="E-Mail" type="text" id="form58" class="form-control" [formControl]="FormEmail">
                     <label style=color:black for="form58">E-Mail</label>
                 </div>
 
                 <!-- Password -->
                 <div class="md-form">
-                    <input mdbInput placeholder="Password" type="text" id="form58" class="form-control">
+                    <input mdbInput placeholder="Password" type="text" id="form58" class="form-control" [formControl]="FormPassword1">
                     <label style=color:black for="form58">Password</label>
-
-                    <br>
-                    <input mdbInput placeholder="Repeat password" type="text" id="form58" class="form-control">
+                    <input mdbInput placeholder="Repeat password" type="text" id="form58" class="form-control" [formControl]="FormPassword2">
                 </div>
+                <p>Name: {{ FormName.value }}</p>
+                <p>Email: {{ FormEmail.value }}</p>
+                <p>Pw1: {{ FormPassword1.value }}</p>
+                <p>Pw2: {{ FormPassword2.value }}</p>
             </div>
-        </form>
     </div>
 
     <!-- Submit Button -->

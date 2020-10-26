@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlaylistComponent } from './playlist/playlist.component';
 
 import {CookieService} from 'ngx-cookie-service';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -41,10 +41,10 @@ import {CookieService} from 'ngx-cookie-service';
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-
-   
+    ReactiveFormsModule,
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
