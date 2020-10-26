@@ -37,7 +37,6 @@ export class BackendcommService {
       avatar: {
         'avatarID': 1
       }};
-      console.log('test');
     let promise = new Promise((resolve, reject) => {
       this.http.post('http://localhost:8080/users',body)
         .toPromise()
@@ -51,6 +50,28 @@ export class BackendcommService {
         );
     });
     return promise;
-
   }
+
+  signIn(email:String, password:String){
+    var body = {
+      'password': password,
+      'email': email
+    };
+    let promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/login',body)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error)
+          }
+        );
+    });
+    return promise;
+  }
+
+
+
 }

@@ -13,7 +13,7 @@ export class EinstellungenComponent implements OnInit {
 
 public userid = '';
 public name = '';
-public avatar = '../assets/' + 'img_avatar4.png';
+public avatar = '';
 
 
 //*****************************************GET BEFEHL*************************************************/
@@ -24,6 +24,7 @@ ngOnInit(): void {
     // Success
     this.name = res['name'];
     this.userid = res['userID'];
+    this.avatar = '../assets/' + res['avatar']['pictureName'];
     //this.avatar = '../assets/' + res['user']['avatar'];
     //console.log(res['products']);
     })

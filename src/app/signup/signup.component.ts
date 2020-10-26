@@ -10,8 +10,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
   public cookieValue;
-  public form: FormGroup;
-
 
   FormName= new FormControl('');
   FormEmail= new FormControl('');
@@ -19,7 +17,7 @@ export class SignupComponent implements OnInit {
   FormPassword2= new FormControl('');
 
 
-  constructor(private service: BackendcommService, private cookieService:CookieService, private fb: FormBuilder) { }              //Service einfügen
+  constructor(private service: BackendcommService, private cookieService:CookieService) { }              //Service einfügen
 
   ngOnInit(): void {
   }
