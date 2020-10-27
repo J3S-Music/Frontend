@@ -2,6 +2,7 @@ import { Component, OnInit, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '@ang
 import{ BackendcommService } from '../services/backendcomm.service';  //service importieren
 import {CookieService} from 'ngx-cookie-service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent implements OnInit {
   FormPassword2= new FormControl('');
 
 
-  constructor(private service: BackendcommService, private cookieService:CookieService) { }              //Service einfügen
+  constructor(private service: BackendcommService, private cookieService:CookieService, public router:Router) { }              //Service einfügen
 
   ngOnInit(): void {
   }
@@ -45,6 +46,7 @@ export class SignupComponent implements OnInit {
           this.cookieValue=res;
           console.log(this.cookieValue);
           this.cookieService.set('UserID', this.cookieValue);
+          this.router.navigate(['/home']);
           })
           
           .catch(error =>{
