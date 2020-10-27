@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import{BackendcommService} from '../services/backendcomm.service';  //service importieren
 
 
+import { Avatar } from '../avatar-selection/avatar';
+import { AVATAR } from '../avatar-selection/list-data'
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-einstellungen',
   templateUrl: './einstellungen.component.html',
@@ -9,11 +13,14 @@ import{BackendcommService} from '../services/backendcomm.service';  //service im
 })
 export class EinstellungenComponent implements OnInit {
 
-  constructor(private service: BackendcommService) { }              //Service einfügen
+  constructor(private service: BackendcommService, private router:Router) {
+
+   }              //Service einfügen
 
 public userid = '';
 public name = '';
 public avatar = '';
+
 
 
 //*****************************************GET BEFEHL*************************************************/
