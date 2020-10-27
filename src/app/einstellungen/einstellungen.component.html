@@ -2,7 +2,6 @@
 
 
   <a>
-
     <div>
       <!-- (default) avatar -->
       <img alt="avatar" class="avatar" style="vertical-align:middle;" target="_self" rel="noopener"
@@ -11,10 +10,10 @@
     <!-- Username / UserID -->
     <a class="list-group list-group-flush" style="vertical-align:middle;margin-top:2%">
       <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0);"> User-ID: {{userid}}</h6>
+        <h6 style="color:rgb(0, 0, 0);"> Name: {{name}}</h6>
       </li>
       <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0)"> Name: {{name}}</h6>
+        <h6 style="color:rgb(0, 0, 0)"> Email: {{email}}</h6>
       </li>
     </a>
 
@@ -26,20 +25,20 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <img style="float:left;" width=10% height=10% src="../assets/spotify.png" class="img-fluid" alt="spotify">
-        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
+        <mdb-checkbox style="float:right;" [checked]="this.SpotifyStatus" [default]="false">connected</mdb-checkbox>
       </li>
       <li class="list-group-item">
         <img style="float:left;" width=11% height=11% src="../assets/youtube.png" class="img-fluid" alt="youtube">
-        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
+        <mdb-checkbox style="float:right;" [checked]="this.YoutubeStatus" [default]="false">connected</mdb-checkbox>
       </li>
       <li class="list-group-item">
         <img style="float:left;" width=10% height=10% src="../assets/applemusic.png" class="img-fluid"
           alt="apple music">
-        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
+        <mdb-checkbox style="float:right;" [checked]="this.AppleStatus" [default]="false">connected</mdb-checkbox>
       </li>
       <li class="list-group-item">
         <img style="float:left;" width=10% height=10% src="../assets/soundcloud.png" class="img-fluid" alt="soundcloud">
-        <mdb-checkbox style="float:right;" [checked]="true" [default]="false">connected</mdb-checkbox>
+        <mdb-checkbox style="float:right;" [checked]="this.SoundcloudStatus" [default]="false">connected</mdb-checkbox>
       </li>
     </ul>
     <br>
