@@ -7,50 +7,60 @@
   <br>
 
 
-  <!-- Select your Avatar -->
+  Select your Avatar 
   <div class="hiddenradio custom-control custom-radio ">
     <div class="custom-control-inline">
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline1" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline1" name="avatar"  mdbInput (click)=changeAvatar(1)>
       <img src="../assets/img_avatar1.png" class="avatar">
     </label>
 
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline2" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline2" name="avatar"  mdbInput (click)=changeAvatar(2)>
       <img src="../assets/img_avatar2.png" class="avatar">
     </label>
 
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline3" name="avatar"  mdbInput (click)=changeAvatar(3)>
       <img src="../assets/img_avatar3.png" class="avatar">
     </label>
   </div>
   <div class="custom-control-inline">
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline4" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline4" name="avatar"  mdbInput (click)=changeAvatar(4)>
       <img src="../assets/img_avatar4.png" class="avatar">
     </label>
 
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline5" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline5" name="avatar"  mdbInput (click)=changeAvatar(5)>
       <img src="../assets/img_avatar5.png" class="avatar">
     </label>
 
     <label>
-      <input type="radio" class="custom-control-input" id="defaultInline6" name="avatar" mdbInput>
+      <input type="radio" class="custom-control-input" id="defaultInline6" name="avatar"  mdbInput (click)=changeAvatar(6)>
       <img src="../assets/img_avatar6.png" class="avatar">
     </label>
   </div>
   </div>
 
+  <!--
+  <div class="hiddenradio custom-control custom-radio custom-control-inline">
+          <label *ngFor="let avatar of avatarList">
+            <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{avatar.value}}" (change)="onItemChange(avatar)"/> 
+            <img src="{{avatar.value}}" class="avatar">
+          </label>
+  </div>
+-->
 
 
-  <!-- Submit your selected Avatar -->
+
+  <!-- Submit your selected Avatar 
   <div class="card-container">
     <button (click)="changeAvatar()" class="card" target="_self" rel="noopener" routerLink="/settings">
         <span style="font-size: 20px;">Submit</span>
     </button>
     <button type="submit">Submit</button>
 </div>
+-->
 
 </div>

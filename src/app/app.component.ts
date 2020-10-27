@@ -28,7 +28,6 @@ export class AppComponent {
 
   logout(){
     this.cookieService.delete("UserID");
-    
   }
 
 }
