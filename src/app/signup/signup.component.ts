@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
     let email = this.FormEmail.value;
     
       if(pw1==="" || pw2===""|| name===""||email===""){
-        console.log("Please fill in all requiered fields!");
+        alert("Please fill in all requiered fields!");
       }else{
         if(this.checkPasswords(pw1,pw2)){
           this.service.signUp(name, email, pw1)
@@ -54,7 +54,7 @@ export class SignupComponent implements OnInit {
           })
         }
         else{
-          console.log("Passwords dont match!")
+          alert("Passwords dont match!");
         }
       }
   }

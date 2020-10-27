@@ -33,7 +33,7 @@ export class SigninComponent implements OnInit {
     let pw = this.FormPassword.value;
 
     if(pw==="" ||email===""){
-      console.log("Please fill in all requiered fields!");
+      alert("Please fill in all requiered fields!");
     }else{
       this.service.signIn(email,pw)
         
