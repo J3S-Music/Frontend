@@ -7,14 +7,11 @@
 </a>
 
 
-  <ul  class="list-group list-group-flush">
-    <li   class="list-group-item" >
-      <div   class="md-form">
-        <textarea     type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
-        <label width = 40%  style= color:black for="form7">insert roomcode</label>
-      </div>
-    </li>
-  </ul>
-  
+  <!-- Insert roomcode -->
+  <input type="text" id="form58" [formControl]="FormRoomcode"  id="defaultSubscriptionFormName" class="form-control mb-4" placeholder="Insert roomcode">
+
+  <!-- Submit button -->
+  <button mdbBtn color="info" block="true" type="submit" >Submit</button>
+
 </div>
 

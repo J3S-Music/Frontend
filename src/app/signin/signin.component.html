@@ -1,28 +1,57 @@
 <div class="content" role="main">
+    <!--
     <div class="box">
-
-        <!-- Enter E-Mail -->
+        
+         Enter E-Mail 
         <div class="md-form">
-            <input mdbInput placeholder="E-Mail" type="email" id="form58" class="form-control" [formControl]="FormEmail">
-            <label style= color:black for="form58">E-Mail</label>
+            <input mdbInput placeholder="E-Mail" type="email" id="form58" class="form-control"
+                [formControl]="FormEmail">
+            <label style=color:black for="form58">E-Mail</label>
         </div>
 
-        <!-- Enter Passwort -->
+         Enter Passwort 
         <div class="md-form">
             <input mdbInput placeholder="Password" type="password" id="form58" class="form-control" [formControl]="FormPassword">
             <label style= color:black for="form58">Password</label>
         </div>
     </div>
 
-    <!-- Sign-in Button-->
+     Sign-in Button
     
     <div class="card-container">
         <button (click)="signIn()" class="card">
             <span style="font-size: 20px;">Submit</span>
         </button>
+        
     </div>
-    
+-->
+
+
+
     <!--<button (click)="signIn()" type="submit">Submit</button> -->
+
+
+
+    <!-- Default form subscription -->
+    <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:60%">
+
+        <p class="h4 mb-4">Sign in</p>
+
+    <br>
+
+      
+        <!-- Email -->
+        <input type="email" id="form58" [formControl]="FormEmail"  id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+        <!-- password -->
+        <input type="password" id="form58"  [formControl]="FormPassword"  id="defaultSubscriptionFormPassword" class="form-control mb-4"  placeholder="Password">
+
+        <br>
+        <!-- Submit button -->
+        <button mdbBtn color="info" block="true" type="submit" (click)="signIn()" >Submit</button>
+
+
+    </form>
+    <!-- Default form subscription -->
 
 
 </div>

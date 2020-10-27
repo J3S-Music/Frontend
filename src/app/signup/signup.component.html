@@ -1,32 +1,29 @@
 <div class="content" role="main">
-    <div class="box">
-            <div class="form-group column">
-                <!-- Enter Name -->
-                <div class="md-form">
-                    <input mdbInput placeholder="Name" type="text" id="form58" class="form-control" [formControl]="FormName">
-                    <label style=color:black for="form58">Name</label>
-                </div>
 
-                <!-- Enter E-Mail -->
-                <div class="md-form">
-                    <input mdbInput placeholder="E-Mail" type="email" id="form58" class="form-control" [formControl]="FormEmail">
-                    <label style=color:black for="form58">E-Mail</label>
-                </div>
 
-                <!-- Password -->
-                <div class="md-form">
-                    <input mdbInput placeholder="Password" type="password" id="form58" class="form-control" [formControl]="FormPassword1">
-                    <label style=color:black for="form58">Password</label>
-                    <input mdbInput placeholder="Repeat password" type="password" id="form58" class="form-control" [formControl]="FormPassword2">
-                </div>
-            </div>
-    </div>
 
-    <!-- Submit Button -->
-    <div class="card-container">
-        <button (click)="signUp()" class="card">
-            <span style="font-size: 20px;">Submit</span>
-        </button>
-    </div>
+    <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:60%">
+
+        <p class="h4 mb-4">Sign up</p>
+
+    <br>
+
+        <!-- Name -->
+         <input type="text" id="form58" [formControl]="FormName"  id="defaultSubscriptionFormName" class="form-control mb-4" placeholder="Name">
+        <!-- Email -->
+        <input type="email" id="form58" [formControl]="FormEmail"  id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+        <!-- password1 -->
+        <input type="password" id="form58"  [formControl]="FormPassword1"  id="defaultSubscriptionFormPassword" class="form-control mb-4"  placeholder="Password">
+        
+        <!-- password2 -->
+        <input type="password" id="form58"  [formControl]="FormPassword2"  id="defaultSubscriptionFormPassword" class="form-control mb-4"  placeholder="Repeat password">
+
+        <br>
+        <!-- Submit button -->
+        <button mdbBtn color="info" block="true" type="submit" (click)="signUp()" >Submit</button>
+
+
+    </form>
+    <!-- Default form subscription -->
 
 </div>

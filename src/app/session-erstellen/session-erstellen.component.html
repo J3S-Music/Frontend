@@ -1,35 +1,37 @@
 <div class="content" role="main">
- 
-  <a *ngFor="rooms"
-  [routerLink]="['/rooms', rooms.id]">
-  {{ rooms.id }}
-  
-</a>
-   
-    <ul class="list-group list-group-flush" style ="margin-right:auto">
+
+  <a *ngFor="rooms" [routerLink]="['/rooms', rooms.id]">
+    {{ rooms.id }}
+
+  </a>
+  <a>
+
+    <ul class="list-group list-group-flush" style="margin-right:auto">
       <li class="list-group-item">
-        <h6  style ="color:rgb(0, 0, 0);"> Roomname:&nbsp; &nbsp; &nbsp;</h6>
+        <h6 style="color:rgb(0, 0, 0);"> Roomname:&nbsp; &nbsp; &nbsp;</h6>
       </li>
       <li class="list-group-item">
-        <h6  style ="color:rgb(0, 0, 0)"> Password:&nbsp; &nbsp; &nbsp;</h6>
+        <h6 style="color:rgb(0, 0, 0)"> Password:&nbsp; &nbsp; &nbsp;</h6>
       </li>
     </ul>
 
 
-   <!--ROUTEN EINFÜGEN -->
+    <!--ROUTEN EINFÜGEN -->
 
     <div class="card-container">
-        <a class="card" target="_self" rel="noopener" routerLink="/playlist">
-            <span style="font-size: 20px;">show playlist </span>
-        </a>
-        <a class="card" target="_self" rel="noopener" routerLink="/">
-            <span style="font-size: 20px;">manage room </span>
-        </a>
-        <a class="card" target="_self" rel="noopener" routerLink="/">
-          <span style="font-size: 20px;">show QR-Code</span>
-        </a>
-        <a class="card" target="_self" rel="noopener" routerLink="/">
-          <span style="font-size: 20px;">share link </span>
-        </a>
-    </div>
+      <a class="card" target="_self" rel="noopener" routerLink="/playlist">
+        <span style="font-size: 20px;">show playlist </span>
+      </a>
+      <a class="card" target="_self" rel="noopener" routerLink="/">
+        <span style="font-size: 20px;">manage room </span>
+      </a>
+      <a class="card" target="_self" rel="noopener" routerLink="/">
+        <span style="font-size: 20px;">show QR-Code</span>
+      </a>
+      <a class="card" target="_self" rel="noopener" routerLink="/">
+        <span style="font-size: 20px;">share link </span>
+      </a>
+  
+</div>
+</a>
 </div>
