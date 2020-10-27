@@ -3,7 +3,6 @@ import {CookieService} from 'ngx-cookie-service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BackendcommService } from '../services/backendcomm.service';
 import { Router } from '@angular/router';
-import { AppRoutingModule } from '../app-routing.module';
 
 
 @Component({
@@ -16,8 +15,6 @@ export class SigninComponent implements OnInit {
 
   FormEmail= new FormControl('');
   FormPassword= new FormControl('');
-
-
 
   constructor(
     private service: BackendcommService,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-session-beitreten',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionBeitretenComponent implements OnInit {
             
+  FormRoomcode= new FormControl('');
+
   constructor() { }
 
   ngOnInit(): void {
