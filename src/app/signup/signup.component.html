@@ -6,24 +6,35 @@
 
         <p class="h4 mb-4">Sign up</p>
 
-    <br>
+        <br>
 
         <!-- Name -->
-         <input type="text" id="form58" [formControl]="FormName"  id="defaultSubscriptionFormName" class="form-control mb-4" placeholder="Name">
+        <input type="text" id="form58" [formControl]="FormName" id="defaultSubscriptionFormName"
+            class="form-control mb-4" placeholder="Name">
         <!-- Email -->
-        <input type="email" id="form58" [formControl]="FormEmail"  id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+        <input type="email" id="form58" [formControl]="FormEmail" id="defaultSubscriptionFormEmail"
+            class="form-control mb-4" placeholder="E-mail">
         <!-- password1 -->
-        <input type="password" id="form58"  [formControl]="FormPassword1"  id="defaultSubscriptionFormPassword" class="form-control mb-4"  placeholder="Password">
-        
+        <input type="password" id="form58" [formControl]="FormPassword1" id="defaultSubscriptionFormPassword"
+            class="form-control mb-4" placeholder="Password">
+
         <!-- password2 -->
-        <input type="password" id="form58"  [formControl]="FormPassword2"  id="defaultSubscriptionFormPassword" class="form-control mb-4"  placeholder="Repeat password">
+        <input type="password" id="form58" [formControl]="FormPassword2" id="defaultSubscriptionFormPassword"
+            class="form-control mb-4" placeholder="Repeat password">
 
         <br>
         <!-- Submit button -->
-        <button mdbBtn color="info" block="true" type="submit" (click)="signUp()" >Submit</button>
+
+        <button mdbBtn color="info" block="true" type="submit" (click)="signUp()">Submit</button>
 
 
     </form>
     <!-- Default form subscription -->
+
+    <div class="card-container" style="margin-top: 20px;">
+        <a class="card" target="_self" rel="noopener" routerLink="/signin">
+            <span style="font-size: 20px;">Sign in</span>
+        </a>
+    </div>
 
 </div>
