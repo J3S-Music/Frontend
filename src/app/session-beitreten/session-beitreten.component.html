@@ -1,23 +1,22 @@
 <div class="content" role="main">
 
-  <a *ngFor="join"
-  [routerLink]="['/join', join.id]">
-  {{ join.id }}
-  
-</a>
+  <a *ngFor="join" [routerLink]="['/join', join.id]">
+    {{ join.id }}
 
-<form class="text-center border border-light p-5" style="background-color: #9ea39f; width:60%">
+  </a>
 
-  <p class="h4 mb-4">Join Room</p>
+  <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:60%">
 
-  <br>
+    <p class="h4 mb-4">Join Room</p>
 
-  <!-- Insert roomcode -->
-  <input type="text" id="form58" [formControl]="FormRoomcode"  id="defaultSubscriptionFormName" class="form-control mb-4" placeholder="Insert roomcode">
+    <br>
 
-  <!-- Submit button -->
-  <button mdbBtn color="info" block="true" type="submit" >Submit</button>
-</form>
+    <!-- Insert roomcode -->
+    <input type="text" id="form58" [formControl]="FormRoomcode" id="defaultSubscriptionFormName"
+      class="form-control mb-4" placeholder="Insert roomcode">
+
+    <!-- Submit button -->
+    <button mdbBtn color="info" block="true" type="submit">Submit</button>
+  </form>
 
 </div>
-
