@@ -104,7 +104,7 @@ export class BackendcommService {
       .set('id', userID)
 
     const promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/rooms/create', body, { params })
+      this.http.post('http://localhost:8080/room/create', body, { params })
         .toPromise()
         .then(
           res => { // Success
@@ -127,7 +127,7 @@ export class BackendcommService {
       .set('id', userID)
 
     const promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/rooms/join', body, { params })
+      this.http.post('http://localhost:8080/room/join', body, { params })
         .toPromise()
         .then(
           res => { // Success
