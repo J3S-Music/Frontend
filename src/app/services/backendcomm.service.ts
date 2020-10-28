@@ -145,7 +145,7 @@ export class BackendcommService {
     const userID = this.cookieService.get('UserID');
     const url = this.router.url
     const promise = new Promise((resolve, reject) => {
-      this.http.get('http://localhost:8080/' + url)
+      this.http.get('http://localhost:8080' + url)
         .toPromise()
         .then(
           res => { // Success
