@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -91,4 +91,52 @@ export class BackendcommService {
     });
     return promise;
   }
+
+  createRoom(roomname: string, password: string): Promise<any> {
+    const userID = this.cookieService.get('UserID');
+    const body = {
+      principal: 'Voting',
+      roomName: roomname,
+      roomCode: password,
+    }
+    const params = new HttpParams()
+      .set('id', userID)
+
+    const promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/rooms/create', body, { params })
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          });
+    });
+    return promise;
+  }
+
+  joinRoom(roomID: number, password: string): Promise<any> {
+    const userID = this.cookieService.get('UserID');
+    const body = {
+      roomID: roomID,
+      roomCode: password,
+    }
+    const params = new HttpParams()
+      .set('id', userID)
+
+    const promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/rooms/join' + roomID, body, { params })
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          });
+    });
+    return promise;
+  }
+
 }

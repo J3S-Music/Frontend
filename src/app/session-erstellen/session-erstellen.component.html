@@ -1,35 +1,33 @@
 <div class="content" role="main">
 
-  <a *ngFor="rooms" [routerLink]="['/rooms', rooms.id]">
+  <!-- <a *ngFor="rooms" [routerLink]="['/rooms', rooms.id]">
     {{ rooms.id }}
+  </a> -->
 
-  </a>
-  <a>
+    <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:60%">
 
-    <ul class="list-group list-group-flush" style="margin-right:auto">
-      <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0);"> Roomname:&nbsp; &nbsp; &nbsp;</h6>
-      </li>
-      <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0)"> Password:&nbsp; &nbsp; &nbsp;</h6>
-      </li>
-    </ul>
+      <p class="h4 mb-4">Create Room</p>
 
-    <!--ROUTEN EINFÜGEN -->
-    <div class="card-container">
-      <a class="card" target="_self" rel="noopener" routerLink="/playlist">
-        <span style="font-size: 20px;">show playlist </span>
-      </a>
-      <a class="card" target="_self" rel="noopener" routerLink="/">
-        <span style="font-size: 20px;">manage room </span>
-      </a>
-      <a class="card" target="_self" rel="noopener" routerLink="/">
-        <span style="font-size: 20px;">show QR-Code</span>
-      </a>
-      <a class="card" target="_self" rel="noopener" routerLink="/">
-        <span style="font-size: 20px;">share link </span>
-      </a>
+      <br>
 
-    </div>
-  </a>
+      <!-- Roomname -->
+      <input type="text" id="form58" [formControl]="FormRoomName" id="defaultSubscriptionFormRoomName"
+        class="form-control mb-4" placeholder="Room Name">
+      <!-- password1 -->
+      <input type="password" id="form58" [formControl]="FormPassword1" id="defaultSubscriptionFormPassword1"
+        class="form-control mb-4" placeholder="Password">
+      <!-- password2 -->
+      <input type="password" id="form58" [formControl]="FormPassword2" id="defaultSubscriptionFormPassword2"
+        class="form-control mb-4" placeholder="Repeat password">
+
+      <!-- Submit button -->
+      <button mdbBtn color="info" block="true" type="submit" (click)="createRoom()">Submit</button>
+    </form>
+
+    <div class="card-container" style="margin-top: 20px;">
+      <a class="card" target="_self" rel="noopener" routerLink="/join">
+          <span style="font-size: 20px;">Join Room</span>
+      </a>
+  </div>
+
 </div>

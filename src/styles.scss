@@ -1,7 +1,6 @@
-html{
+html {
+  background: url(../background.png) no-repeat center center fixed;
 
-    background: url(../background.png)no-repeat center center fixed;
-  
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,7 +8,8 @@ html{
 }
 
 :host {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   color: #333;
   box-sizing: border-box;
@@ -17,7 +17,7 @@ html{
   -moz-osx-font-smoothing: grayscale;
 }
 
-body{
+body {
   background-color: transparent !important;
 }
 
@@ -34,8 +34,6 @@ p {
   margin: 12p;
 }
 
-
-
 .spacer {
   flex: 1;
 }
@@ -50,11 +48,10 @@ p {
 .avatar {
   vertical-align: middle;
   float: center;
-  width:100%;
+  width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-
 
 .ul {
   list-style-type: none;
@@ -69,17 +66,14 @@ p {
   padding: 10px;
 }
 
-
-
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.mdb-checkbox{
-align-items: right;
+.mdb-checkbox {
+  align-items: right;
 }
-
 
 .toolbar {
   position: absolute;
@@ -135,30 +129,27 @@ svg.material-icons:not(:last-child) {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 100px;
-
 }
 
 .box {
- background-color: #9ea39f;
- padding: 20px;
+  background-color: #9ea39f;
+  padding: 20px;
 }
 
-
-.control-inline{
+.control-inline {
   opacity: 100%;
   width: 200%;
   height: 480%;
-
 }
 
 // Styles für Playlist Component
 
 .well {
-  background-color: #000000
+  background-color: #000000;
 }
 
 #content {
-  padding: 25% 25% 5%;  
+  padding: 25% 25% 5%;
 }
 
 .search-form {
@@ -166,11 +157,11 @@ svg.material-icons:not(:last-child) {
 }
 
 .input-group {
-  width:100%;
+  width: 100%;
 }
 
 input-group-btn {
-  max-width:38px;
+  max-width: 38px;
 }
 
 #search {
@@ -178,11 +169,10 @@ input-group-btn {
 }
 
 .search-btn {
-  cursor:pointer;
-  border-radius: 0 30px 30px 0; 
-  background-color:rgb(255, 255, 255);
-  color:rgb(0, 0, 0);
-  
+  cursor: pointer;
+  border-radius: 0 30px 30px 0;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .text-center {
@@ -190,7 +180,7 @@ input-group-btn {
 }
 
 /* HIDE RADIO */
-.hiddenradio [type=radio] { 
+.hiddenradio [type="radio"] {
   position: center;
   opacity: 0;
   width: 0;
@@ -198,15 +188,14 @@ input-group-btn {
 }
 
 /* IMAGE STYLES */
-.hiddenradio [type=radio] + img {
+.hiddenradio [type="radio"] + img {
   cursor: auto;
 }
 
 /* CHECKED STYLES */
-.hiddenradio [type=radio]:checked + img {
+.hiddenradio [type="radio"]:checked + img {
   outline: 4px solid rgb(139, 143, 139);
 }
-
 
 .card {
   border-radius: 8px;
@@ -278,7 +267,7 @@ svg#rocket-smoke {
 a,
 a:visited,
 a:hover {
-  color: #000000;
+  color: #000000 !important;
   text-decoration: none;
 }
 
@@ -313,7 +302,7 @@ a:hover {
 }
 
 .terminal pre {
-  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   color: white;
   padding: 0 1rem 1rem;
   margin: 0;
@@ -357,18 +346,19 @@ footer a {
   align-items: center;
   font-size: 12px;
   padding: 3px 10px;
-  border: 1px solid rgba(27,31,35,.2);
+  border: 1px solid rgba(27, 31, 35, 0.2);
   border-radius: 3px;
-  background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+  background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
   margin-left: 4px;
   font-weight: 600;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
 .github-star-badge:hover {
-  background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-  border-color: rgba(27,31,35,.35);
-  background-position: -.5em;
+  background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+  border-color: rgba(27, 31, 35, 0.35);
+  background-position: -0.5em;
 }
 
 .github-star-badge .material-icons {
@@ -385,11 +375,9 @@ svg#clouds {
   width: 1920px;
 }
 
-
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
-
-  .card-container > *:not(.circle-link) ,
+  .card-container > *:not(.circle-link),
   .terminal {
     width: 100%;
   }
