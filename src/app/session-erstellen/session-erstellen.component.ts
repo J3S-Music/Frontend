@@ -38,8 +38,8 @@ export class SessionErstellenComponent implements OnInit {
       if (this.checkPasswords(pw1, pw2)) {
         this.service.createRoom(roomname, pw1)
           .then(res => {
-            // Success
-            this.router.navigate(['/room']);      // Id hinzufügen
+            console.log(res)
+            this.router.navigate(['/room' + res]);      // Id hinzufügen
           })
           .catch(error => {
             console.log(error);                                        // error werfen

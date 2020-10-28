@@ -12,7 +12,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { RoomComponent } from './room/room.component';
 
 const routes: Routes = [
-  { path: 'room', component: RoomComponent },
+  { path: 'room/:id', component: RoomComponent },
   { path: 'settings', component: EinstellungenComponent },
   { path: 'home', component: HauptmenuComponent },
   { path: 'login', component: LoginComponent },
