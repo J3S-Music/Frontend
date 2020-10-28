@@ -96,7 +96,7 @@ export class BackendcommService {
   createRoom(roomname: string, password: string): Promise<any> {
     const userID = this.cookieService.get('UserID');
     const body = {
-      principal: 'Voting',
+      principle: 'Voting',
       roomName: roomname,
       roomCode: password,
     }
