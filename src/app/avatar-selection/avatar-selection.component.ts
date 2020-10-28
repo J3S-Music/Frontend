@@ -6,28 +6,26 @@ import { Router } from '@angular/router';
   selector: 'app-avatar-selection',
   templateUrl: './avatar-selection.component.html',
   styleUrls: ['./avatar-selection.component.scss']
- 
 })
 
 export class AvatarSelectionComponent implements OnInit {
 
-  constructor(private service: BackendcommService, private router:Router) {
+  constructor(private service: BackendcommService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-  
-  changeAvatar(id) {
+  changeAvatar(id): void {
     console.log(id);
     this.service.changeAvatar(id)
-    .then(res=> {
-    // Success
-    console.log(res);
-      this.router.navigate(["/settings"]);
+    .then(res => {
+      // Success
+      console.log(res);
+      this.router.navigate(['/settings']);
     })
-    .catch(error =>{
-      console.log(error)                                        //error werfen
-    })
+    .catch(error => {
+      console.log(error);                                        // error werfen
+    });
   }
 }

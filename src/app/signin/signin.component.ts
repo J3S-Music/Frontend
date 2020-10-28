@@ -13,40 +13,36 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
   public cookieValue;
 
-  FormEmail= new FormControl('');
-  FormPassword= new FormControl('');
+  FormEmail = new FormControl('');
+  FormPassword = new FormControl('');
 
   constructor(
     private service: BackendcommService,
-    private cookieService:CookieService,
-    private router:Router,
+    private cookieService: CookieService,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
   }
 
-  signIn(){
-    let email = this.FormEmail.value;
-    let pw = this.FormPassword.value;
+  signIn(): void{
+    const email = this.FormEmail.value;
+    const pw = this.FormPassword.value;
 
-    if(pw==="" ||email===""){
-      alert("Please fill in all requiered fields!");
-    }else{
-      this.service.signIn(email,pw)
-        
-        .then(res=> {
+    if (pw === '' || email === ''){
+      alert('Please fill in all requiered fields!');
+    }else {
+      this.service.signIn(email, pw)
+        .then(res => {
         // Success
-        this.cookieValue=res;
+        this.cookieValue = res;
         console.log(this.cookieValue);
         this.cookieService.set('UserID', this.cookieValue);
         this.router.navigate(['/home']);
         })
-        .catch(error =>{
-          console.log(error)                                        //error werfen
-        })
-
+        .catch(error => {
+          console.log(error);                                        // error werfen
+        });
     }
-
-
   }
 }

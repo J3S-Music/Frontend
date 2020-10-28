@@ -7,8 +7,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./session-beitreten.component.scss']
 })
 export class SessionBeitretenComponent implements OnInit {
-            
-  FormRoomcode= new FormControl('');
+
+  FormRoomcode = new FormControl('');
 
   constructor() { }
 

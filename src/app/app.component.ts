@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +8,23 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 
-
-
 export class AppComponent {
-  constructor(private cookieService:CookieService, private router:Router){}
+  constructor(private cookieService: CookieService, private router: Router){}
 
   title = 'J3SMusic';
-  checkCookie(){
-    var route = this.router.url;
-    if(route==="/login" || route==="/signin" || route==="/signup"){
+  checkCookie(): boolean {
+    const route = this.router.url;
+    if (route === '/login' || route === '/signin' || route === '/signup'){
       return true;
     }
-    else if(this.cookieService.check("UserID")){
+    else if (this.cookieService.check('UserID')){
       return true;
-    } 
+    }
     this.router.navigate(['/login']);
     return false;
   }
 
-  logout(){
-    this.cookieService.delete("UserID");
+  logout(): void{
+    this.cookieService.delete('UserID');
   }
-
 }

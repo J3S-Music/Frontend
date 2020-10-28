@@ -7,89 +7,88 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class BackendcommService {
 
-  constructor(private http: HttpClient , private cookieService:CookieService) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
 
-  getData() {
-    var userID = this.cookieService.get("UserID");
-    let promise = new Promise((resolve, reject) => {
-      this.http.get('http://localhost:8080/users/'+userID)
+  getData(): Promise<any> {
+    const userID = this.cookieService.get('UserID');
+    const promise = new Promise((resolve, reject) => {
+      this.http.get('http://localhost:8080/users/' + userID)
         .toPromise()
         .then(
           res => { // Success
             resolve(res);
           },
           error => { // Error Serverfehler
-            reject(error)
+            reject(error);
           }
         );
     });
     return promise;
-
   }
 
-
-  signUp( name: String, email: String, password: String) {
-    var body = {
+  signUp(name: string, email: string, password: string): Promise<any> {
+    const body = {
       'password': password,
       'name': name,
       'email': email,
-      avatar: {
-        'avatarID': 1
-      }};
-    let promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/users',body)
+      'avatar': {
+        avatarID: 1
+      }
+    };
+    const promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/users', body)
         .toPromise()
         .then(
           res => { // Success
             resolve(res);
           },
           error => { // Error Serverfehler
-            reject(error)
+            reject(error);
           }
         );
     });
     return promise;
   }
 
-  signIn(email:String, password:String){
-    var body = {
+  signIn(email: string, password: string): Promise<any> {
+    const body = {
       'password': password,
       'email': email
     };
-    let promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/login',body)
+    const promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/login', body)
         .toPromise()
         .then(
           res => { // Success
             resolve(res);
           },
           error => { // Error Serverfehler
-            reject(error)
+            reject(error);
           }
         );
     });
     return promise;
   }
 
-  changeAvatar(avatarID: number){
-    var userID = this.cookieService.get("UserID");
-    var body = {
+  changeAvatar(avatarID: number): Promise<any> {
+    const userID = this.cookieService.get('UserID');
+    const body = {
       avatar: {
         'avatarID': avatarID
-      }};
-      let promise = new Promise((resolve, reject) => {
-        this.http.put('http://localhost:8080/users/'+userID,body)
-          .toPromise()
-          .then(
-            res => { // Success
-              resolve(res);
-            },
-            error => { // Error Serverfehler
-              reject(error)
-            }
-          );
-      });
-      return promise;
+      }
+    };
+    const promise = new Promise((resolve, reject) => {
+      this.http.put('http://localhost:8080/users/' + userID, body)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          });
+    });
+    return promise;
   }
 }

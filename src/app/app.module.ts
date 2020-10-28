@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,7 +19,6 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import {CookieService} from 'ngx-cookie-service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +31,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     SigninComponent,
     SignupComponent,
     PlaylistComponent,
-  
 
   ],
   imports: [
@@ -46,6 +43,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  
+
 })
+
 export class AppModule { }
