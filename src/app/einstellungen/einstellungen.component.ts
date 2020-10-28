@@ -23,8 +23,7 @@ export class EinstellungenComponent implements OnInit {
 
   /*****************************************GET BEFEHL*************************************************/
   ngOnInit(): void {
-    this.service.getData()
-
+    this.service.getUserData()
       .then(res => {
         // Success
         this.name = res['name'];

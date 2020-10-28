@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackendcommService {
 
-  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) { }
 
 
-  getData(): Promise<any> {
+  getUserData(): Promise<any> {
     const userID = this.cookieService.get('UserID');
     const promise = new Promise((resolve, reject) => {
       this.http.get('http://localhost:8080/users/' + userID)
@@ -135,6 +136,25 @@ export class BackendcommService {
           error => { // Error Serverfehler
             reject(error);
           });
+    });
+    return promise;
+  }
+
+
+  getRoomData(): Promise<any> {
+    const userID = this.cookieService.get('UserID');
+    const url = this.router.url
+    const promise = new Promise((resolve, reject) => {
+      this.http.get('http://localhost:8080/' + url)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
     });
     return promise;
   }

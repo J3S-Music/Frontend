@@ -39,7 +39,7 @@ export class SessionErstellenComponent implements OnInit {
         this.service.createRoom(roomname, pw1)
           .then(res => {
             console.log(res)
-            this.router.navigate(['/room' + res]);      // Id hinzufügen
+            this.router.navigate(['/room' + res]);                     // Id hinzufügen
           })
           .catch(error => {
             console.log(error);                                        // error werfen
