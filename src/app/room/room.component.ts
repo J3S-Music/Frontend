@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class RoomComponent implements OnInit {
 
   public roomName = '';
+  public password = '';
+  public roomID = '';
 
   constructor(private service: BackendcommService, private router: Router) { }
 
@@ -18,6 +20,8 @@ export class RoomComponent implements OnInit {
       .then(res => {
         // Success
         this.roomName = res['roomName'];
+        this.password = res['roomCode'];
+        this.roomID = res['roomID'];
 
       })
       .catch(error => {

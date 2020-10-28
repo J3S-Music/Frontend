@@ -10,13 +10,15 @@
     <p class="h4 mb-4">Join Room</p>
 
     <br>
-
+    <!-- Insert roomcode -->
+    <input type="text" id="form58" [formControl]="FormRoomID" id="defaultSubscriptionFormName"
+    class="form-control mb-4" placeholder="Insert RoomID">
     <!-- Insert roomcode -->
     <input type="text" id="form58" [formControl]="FormRoomcode" id="defaultSubscriptionFormName"
       class="form-control mb-4" placeholder="Insert roomcode">
 
     <!-- Submit button -->
-    <button mdbBtn color="info" block="true" type="submit">Submit</button>
+    <button mdbBtn (click)="joinRoom()" color="info" block="true" type="submit">Submit</button>
   </form>
 
   <div class="card-container" style="margin-top: 20px;">
