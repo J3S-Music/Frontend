@@ -199,4 +199,27 @@ export class BackendcommService {
     return promise;
   }
 
+  search(track:string): Promise<any> {
+    const body = {
+      "q": {
+        "track": track
+      },
+      "type": [
+        "track"
+      ]
+    }
+    const promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/search', body)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          });
+    });
+    return promise;
+  }
+
 }

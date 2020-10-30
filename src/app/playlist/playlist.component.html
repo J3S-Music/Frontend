@@ -3,9 +3,9 @@
 
     <h3 class="text-center">Search for music</h3>
     <div class="input-group">
-        <input type='text' id='search' class="form-control search-form" placeholder="Search a song (song + artist)">
+        <input type='text' id='search' class="form-control search-form" placeholder="Search a song (song + artist)" [formControl]="FormSearch">
         <span class="input-group-btn" style="width:39px">
-            <button id="search-this" type="button" class="pull-right btn btn-default search-btn">
+            <button id="search-this" type="button" class="pull-right btn btn-default search-btn" (click)="search()">
 
                 <i class="fa fa-search"></i>
             </button>
@@ -18,25 +18,15 @@
 
 
 <!--Aktuelle Playlist-->
-
-<ul class="list-group list-group-flush" style="width:90%;">
-
-    <li class="list-group-item">
-        <img style="float:left;" width=10% height=10% src="../assets/cover1.png" alt="cover1">
-
-    </li>
-
-    <li class="list-group-item">
-        <img style="float:left;" width=10% height=10% src="../assets/cover2.jpg" alt="cover2">
-
-    </li>
-
-    <li class="list-group-item">
-        <img style="float:left;" width=10% height=10% src="../assets/cover3.jpg" alt="cover3">
-
-    </li>
-
-
-</ul>
-
+    <div class="scrollbar">
+        <mdb-card class="example-1 scrollbar-ripe-malinka">
+            <mdb-card-body>
+                <ul class="list-group list-group-flush" style="width:90%;">
+                    <li class="list-group-item" *ngFor="let Song of songs">
+                        <img style="float:left;" width=20% height=20% src="../assets/cover1.png" alt="cover1">
+                    </li>
+                </ul>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
 </div>
