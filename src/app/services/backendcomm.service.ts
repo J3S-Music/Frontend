@@ -118,15 +118,13 @@ export class BackendcommService {
 
   joinRoom(roomID: number, password: string): Promise<any> {
     const userID = this.cookieService.get('UserID');
-    const body = {
-      roomID: roomID,
-      roomCode: password,
-    }
+
     const params = new HttpParams()
       .set('id', userID)
+      .set('roomCode', password)
 
     const promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/room/join', body, { params })
+      this.http.post('http://localhost:8080/room/'+roomID+'/join', { params })
         .toPromise()
         .then(
           res => { // Success
