@@ -3,10 +3,9 @@
 
     <h3 class="text-center">Search for music</h3>
     <div class="input-group search">
-        <input type='text' id='search' class="form-control search-form" placeholder="Search a song (song + artist)" [formControl]="FormSearch">
+        <input type='text' id='search' class="form-control search-form" placeholder="Search a song (song + artist)" [formControl]="FormSearch" (keyup.enter)="search()">
         <span class="input-group-btn" style="width:39px">
-            <button id="search-this" type="button" class="pull-right btn btn-default search-btn" (click)="search()">
-
+            <button id="search-this" type="button" class="pull-right btn btn-default search-btn" (keyup.enter)="search()" (click)="search()">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -19,8 +18,13 @@
 
 
 <!--Aktuelle Playlist-->
-    <div class="scrollbar table-responsive">
+    <div *ngIf="checkStatus()" class="scrollbar table-responsive">
         <table mdbTable mdbTableScroll scrollY="true" maxHeight="400"  class="table table-hover table-sm align-middle">
+            <thead>
+                <tr>
+                  <th *ngFor="let head of headElements;" scope="col">{{head}}</th>
+                </tr>
+              </thead>
             <tbody>
               <tr *ngFor="let Song of songs" class="tableelement">
                 <th scope="row" class="cover"><img src={{Song.imageInformation[0].url}} class="cover"></th>
