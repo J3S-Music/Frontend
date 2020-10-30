@@ -10,7 +10,6 @@ export class BackendcommService {
 
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) { }
 
-
   getUserData(): Promise<any> {
     const userID = this.cookieService.get('UserID');
     const promise = new Promise((resolve, reject) => {
@@ -158,5 +157,31 @@ export class BackendcommService {
     });
     return promise;
   }
+
+  getConnectionData(): Promise<any> {
+    const userID = this.cookieService.get('UserID');
+    const promise = new Promise((resolve, reject) => {
+      this.http.get('http://localhost:8080/users/' +userID+'/connections' )
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
+    });
+    return promise;
+  }
+
+
+
+
+
+
+
+
+
 
 }

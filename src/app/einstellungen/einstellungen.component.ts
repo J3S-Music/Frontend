@@ -29,16 +29,23 @@ export class EinstellungenComponent implements OnInit {
         this.name = res['name'];
         this.email = res['email'];
         this.avatar = '../assets/' + res['avatar']['pictureName'];
-        const connectionList = res['userConnections'];
-        this.default = this.getDefault(connectionList);
-        this.SpotifyStatus = this.getConnectionStatus(connectionList, 'Spotify');
-        this.AppleStatus = this.getConnectionStatus(connectionList, 'Apple Music');
-        this.SoundcloudStatus = this.getConnectionStatus(connectionList, 'Soundcloud');
-        this.YoutubeStatus = this.getConnectionStatus(connectionList, 'Youtube');
       })
       .catch(error => {
         console.log(error + ' Keine userdaten');                  // error werfen
-      });                                                         // resolve-> gehts in then bei catch also fehler reject
+      });
+      
+      this.service.getConnectionData()
+        .then(res => {
+          this.default = this.getDefault(res);
+          this.SpotifyStatus = this.getConnectionStatus(res, 'Spotify');
+          this.AppleStatus = this.getConnectionStatus(res, 'Apple Music');
+          this.SoundcloudStatus = this.getConnectionStatus(res, 'Soundcloud');
+          this.YoutubeStatus = this.getConnectionStatus(res, 'Youtube');
+        }).catch(error => {
+          console.log(error + ' Keine userdaten'); 
+        });
+
+      // resolve-> gehts in then bei catch also fehler reject
   }
 
   getDefault(list): string {
