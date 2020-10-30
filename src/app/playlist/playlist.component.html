@@ -2,7 +2,7 @@
 <div class="content" role="main">
 
     <h3 class="text-center">Search for music</h3>
-    <div class="input-group">
+    <div class="input-group search">
         <input type='text' id='search' class="form-control search-form" placeholder="Search a song (song + artist)" [formControl]="FormSearch">
         <span class="input-group-btn" style="width:39px">
             <button id="search-this" type="button" class="pull-right btn btn-default search-btn" (click)="search()">
@@ -15,18 +15,20 @@
 
 <!--Font anpassen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
+<br>
 
 
 <!--Aktuelle Playlist-->
-    <div class="scrollbar">
-        <mdb-card class="example-1 scrollbar-ripe-malinka">
-            <mdb-card-body>
-                <ul class="list-group list-group-flush" style="width:90%;">
-                    <li class="list-group-item" *ngFor="let Song of songs">
-                        <img style="float:left;" width=20% height=20% src="../assets/cover1.png" alt="cover1">
-                    </li>
-                </ul>
-            </mdb-card-body>
-        </mdb-card>
+    <div class="scrollbar table-responsive">
+        <table mdbTable mdbTableScroll scrollY="true" maxHeight="400"  class="table table-hover table-sm align-middle">
+            <tbody>
+              <tr *ngFor="let Song of songs" class="tableelement">
+                <th scope="row" class="cover"><img src={{Song.imageInformation[0].url}} class="cover"></th>
+                <td class="tableelement tablefit">{{Song.track}}</td>
+                <td class="tableelement tablefit">{{Song.artist}}</td>
+                <td class="tableelement">{{Song.album}}</td>
+              </tr>
+            </tbody>
+          </table>
     </div>
 </div>
