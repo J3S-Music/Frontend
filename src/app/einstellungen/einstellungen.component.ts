@@ -3,11 +3,14 @@ import { BackendcommService } from '../services/backendcomm.service';  // servic
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-einstellungen',
   templateUrl: './einstellungen.component.html',
   styleUrls: ['./einstellungen.component.scss']
 })
+
+
 export class EinstellungenComponent implements OnInit {
 
   constructor(private service: BackendcommService, private router: Router) {
@@ -131,11 +134,10 @@ export class EinstellungenComponent implements OnInit {
         this.service.editSettings(name, email, password1)
           .then(res => {
             // Success
-            this.router.navigate(['/home']);
-            this.router.navigate(['/settings']);
+            alert('Success')
           })
           .catch(error => {
-            console.log(error);                                        // error werfen
+            alert('Email already used!');                                        // error werfen
           });
       }
       else {

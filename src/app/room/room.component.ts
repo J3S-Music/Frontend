@@ -12,6 +12,7 @@ export class RoomComponent implements OnInit {
   public roomName = '';
   public password = '';
   public roomID = '';
+  public source = '';
 
   constructor(private service: BackendcommService, private router: Router) { }
 
@@ -22,6 +23,7 @@ export class RoomComponent implements OnInit {
         this.roomName = res['roomName'];
         this.password = res['roomCode'];
         this.roomID = res['roomID'];
+        this.source   = res['connection']['name'];
 
       })
       .catch(error => {

@@ -92,12 +92,15 @@ export class BackendcommService {
     return promise;
   }
 
-  createRoom(roomname: string, password: string): Promise<any> {
+  createRoom(roomname: string, password: string, connectionID:number): Promise<any> {
     const userID = this.cookieService.get('UserID');
     const body = {
       principle: 'Voting',
       roomName: roomname,
       roomCode: password,
+      connection:{
+        connectionID:connectionID
+      }
     }
     const params = new HttpParams()
       .set('id', userID)
@@ -120,11 +123,11 @@ export class BackendcommService {
     const userID = this.cookieService.get('UserID');
 
     const params = new HttpParams()
-      .set('id', userID)
+      .set('userID', userID)
       .set('roomCode', password)
 
     const promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/room/'+roomID+'/join', { params })
+      this.http.get('http://localhost:8080/room/'+roomID+'/join', { params })
         .toPromise()
         .then(
           res => { // Success
@@ -183,7 +186,7 @@ export class BackendcommService {
     }
 
     const promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/users/' + userID, body)
+      this.http.put('http://localhost:8080/users/' + userID, body)
         .toPromise()
         .then(
           res => { // Success

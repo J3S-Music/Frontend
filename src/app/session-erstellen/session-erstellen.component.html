@@ -20,6 +20,18 @@
       <input type="password" id="form58" [formControl]="FormPassword2" id="defaultSubscriptionFormPassword2"
         class="form-control mb-4" placeholder="Repeat password">
 
+        <select class="browser-default custom-select" [formControl]="FormSource">
+          <option value="" disabled [selected]=this.SelectedNothing>Select Source</option>
+          <option value="1" [selected]=this.SpotifySelect>Spotify</option>
+          <option value="2" [selected]=this.AppleSelect>Apple Music</option>
+          <option value="3" [selected]=this.SoundcloudSelect>Soundcloud</option>
+          <option value="4" [selected]=this.YoutubeSelect>Youtube</option>
+        </select>
+       
+        <br>
+        <br>
+        <br>
+
       <!-- Submit button -->
       <button mdbBtn color="info" block="true" type="submit" (click)="createRoom()">Submit</button>
     </form>
