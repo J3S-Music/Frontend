@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendcommService } from '../services/backendcomm.service';  // service importieren
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-einstellungen',
@@ -12,8 +13,8 @@ export class EinstellungenComponent implements OnInit {
   constructor(private service: BackendcommService, private router: Router) {
 
   }              // Service einfügen
-  public email = '';
-  public name = '';
+  // public email = '';
+  // public name = '';
   public avatar = '';
   public default = '';
   public SpotifyStatus = false;
@@ -21,31 +22,41 @@ export class EinstellungenComponent implements OnInit {
   public YoutubeStatus = false;
   public SoundcloudStatus = false;
 
+  FormName = new FormControl('');
+  FormEmail = new FormControl('');
+  FormPassword1 = new FormControl('');
+  FormPassword2 = new FormControl('');
+
   /*****************************************GET BEFEHL*************************************************/
   ngOnInit(): void {
     this.service.getUserData()
       .then(res => {
         // Success
-        this.name = res['name'];
-        this.email = res['email'];
+        // this.name = res['name'];
+        // this.email = res['email'];
+
+        this.FormName.setValue(res['name'])
+        this.FormEmail.setValue(res['email'])
+        this.FormPassword1.setValue(res['password'])
+        this.FormPassword2.setValue(res['password'])
         this.avatar = '../assets/' + res['avatar']['pictureName'];
       })
       .catch(error => {
         console.log(error + ' Keine userdaten');                  // error werfen
       });
-      
-      this.service.getConnectionData()
-        .then(res => {
-          this.default = this.getDefault(res);
-          this.SpotifyStatus = this.getConnectionStatus(res, 'Spotify');
-          this.AppleStatus = this.getConnectionStatus(res, 'Apple Music');
-          this.SoundcloudStatus = this.getConnectionStatus(res, 'Soundcloud');
-          this.YoutubeStatus = this.getConnectionStatus(res, 'Youtube');
-        }).catch(error => {
-          console.log(error + ' Keine userdaten'); 
-        });
 
-      // resolve-> gehts in then bei catch also fehler reject
+    this.service.getConnectionData()
+      .then(res => {
+        this.default = this.getDefault(res);
+        this.SpotifyStatus = this.getConnectionStatus(res, 'Spotify');
+        this.AppleStatus = this.getConnectionStatus(res, 'Apple Music');
+        this.SoundcloudStatus = this.getConnectionStatus(res, 'Soundcloud');
+        this.YoutubeStatus = this.getConnectionStatus(res, 'Youtube');
+      }).catch(error => {
+        console.log(error + ' Keine userdaten');
+      });
+
+    // resolve-> gehts in then bei catch also fehler reject
   }
 
   getDefault(list): string {
@@ -106,4 +117,38 @@ export class EinstellungenComponent implements OnInit {
     }
     return status;
   }
+
+  public editSettings(): void {
+    const name = this.FormName.value;
+    const email = this.FormEmail.value;
+    const password1 = this.FormPassword1.value;
+    const password2 = this.FormPassword2.value;
+
+    if (name === '' || email === '' || password1 === '' || password2 === '') {
+      alert('Please fill in all requiered fields!');
+    } else {
+      if (this.checkPasswords(password1, password2)) {
+        this.service.editSettings(name, email, password1)
+          .then(res => {
+            // Success
+            this.router.navigate(['/home']);
+            this.router.navigate(['/settings']);
+          })
+          .catch(error => {
+            console.log(error);                                        // error werfen
+          });
+      }
+      else {
+        alert('Passwords dont match!');
+      }
+    }
+  }
+
+  checkPasswords(pw1, pw2): boolean {
+    if (pw1 === pw2) {
+      return true;
+    }
+    return false;
+  }
+
 }

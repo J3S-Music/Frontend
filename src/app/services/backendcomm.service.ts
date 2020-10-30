@@ -161,7 +161,7 @@ export class BackendcommService {
   getConnectionData(): Promise<any> {
     const userID = this.cookieService.get('UserID');
     const promise = new Promise((resolve, reject) => {
-      this.http.get('http://localhost:8080/users/' +userID+'/connections' )
+      this.http.get('http://localhost:8080/users/' + userID + '/connections')
         .toPromise()
         .then(
           res => { // Success
@@ -176,12 +176,26 @@ export class BackendcommService {
   }
 
 
+  editSettings(name: string, email: string, password: string): Promise<any> {
+    const userID = this.cookieService.get('UserID');
+    const body = {
+      'password': password,
+      'name': name,
+      'email': email,
+    }
 
-
-
-
-
-
-
+    const promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/users/' + userID, body)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          });
+    });
+    return promise;
+  }
 
 }

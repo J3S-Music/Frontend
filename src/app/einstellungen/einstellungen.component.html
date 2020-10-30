@@ -8,12 +8,51 @@
         routerLink="/avatar" src={{avatar}} />
     </div>
     <!-- Username / UserID -->
+    
     <a class="list-group list-group-flush" style="vertical-align:middle;margin-top:2%">
       <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0);"> Name: {{name}}</h6>
+        <h6 style="color:rgb(0, 0, 0); text-align: center;">Change settings:</h6>
       </li>
       <li class="list-group-item">
-        <h6 style="color:rgb(0, 0, 0)"> Email: {{email}}</h6>
+        <div class="form-group row">
+          <!-- Default input -->
+          <label for="defaultSubscriptionFormName" class="col-sm-3 col-form-label">Name:</label>
+          <div class="col-sm-9">
+            <input type="text" [formControl]="FormName" id="defaultSubscriptionFormName"
+            class="form-control mb-4" placeholder={{FormName}}>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="form-group row">
+          <!-- Default input -->
+          <label for="defaultSubscriptionFormEmail" class="col-sm-3 col-form-label">Email:
+          </label>
+          <div class="col-sm-9">
+            <input type="email" [formControl]="FormEmail" id="defaultSubscriptionFormEmail"
+              class="form-control mb-4" placeholder={{FormEmail}}>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="form-group row">
+          <!-- Default input -->
+          <label for="defaultSubscriptionFormPas1" class="col-sm-3 col-form-label">Password:</label>
+          <div class="col-sm-9">
+            <input type="text" [formControl]="FormPassword1" id="defaultSubscriptionFormPas1"
+            class="form-control mb-4" placeholder={{FormPassword1}}>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="form-group row">
+          <!-- Default input -->
+          <label for="defaultSubscriptionFormPas2" class="col-sm-3 col-form-label">Repeat password:</label>
+          <div class="col-sm-9">
+            <input type="text" [formControl]="FormPassword2" id="defaultSubscriptionFormPas2"
+            class="form-control mb-4" placeholder={{FormPassword2}}>
+          </div>
+        </div>
       </li>
     </a>
 
