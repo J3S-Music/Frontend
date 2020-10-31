@@ -1,28 +1,31 @@
-.list-group-item{
-    background-color: #9ea39f;
+.list-group-item {
+  background-color: #9ea39f;
 }
-.search{
-    margin-bottom: 5%;
+.search {
+  margin-bottom: 5%;
 }
-.table{
-    background-color: #9ea39f;
+.table {
+  background-color: #9ea39f;
 }
-.cover{
-    width: 7vh;
-    height: 7vh;
-    padding: 0 !important;
-    vertical-align: middle;
+.cover {
+  width: 7vh;
+  height: 7vh;
+  padding: 0 !important;
+  vertical-align: middle;
 }
 
-.tableelement{
-    border-collapse: collapse;
-    padding: 10 !important;
-    vertical-align: middle;
+.tableelement {
+  border-collapse: collapse;
+  padding: 10 !important;
+  vertical-align: middle;
+}
+.tablefit {
+  white-space: nowrap;
+}
+.songtable {
+  height: 50vh;
+}
 
-}
-.tablefit{
-    white-space: nowrap;
-}
-.songtable{
-    height: 50vh;
+.border {
+  border: 0px !important;
 }
