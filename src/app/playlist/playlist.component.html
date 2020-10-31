@@ -1,7 +1,7 @@
 <!-- Suchleiste-->
 <div class="content" role="main">
 
-  <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:100%; padding-bottom: 0;">
+  <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:100%; padding: 1em 4em 0em 4em !important;">
     <h3 class="text-center">Search for music</h3>
     <div class="input-group search">
       <input type='text' id='search' class="form-control search-form" placeholder="Search a song (song + artist)"
@@ -19,7 +19,7 @@
 
   <!-- Suchfeld öffnet sich nachdem die Suche genutzt wurde -->
   <div *ngIf="checkStatus()" class="scrollbar table-responsive">
-    <table mdbTable mdbTableScroll scrollY="true" maxHeight="400" class="table table-hover table-sm align-middle">
+    <table mdbTable mdbTableScroll scrollY="true" maxHeight="300" class="table table-hover table-sm align-middle">
       <thead>
         <tr>
           <th *ngFor="let head of headElements;" scope="col">{{head}}</th>

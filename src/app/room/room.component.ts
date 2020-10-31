@@ -23,7 +23,7 @@ export class RoomComponent implements OnInit {
         this.roomName = res['roomName'];
         this.password = res['roomCode'];
         this.roomID = res['roomID'];
-        this.source   = res['connection']['name'];
+        this.source = res['connection']['name'];
 
       })
       .catch(error => {
