@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { Song } from '../playlist/Song';
+import { ImageInformation } from '../playlist/ImageInformation';
 
 @Injectable({
   providedIn: 'root'
@@ -255,14 +256,15 @@ export class BackendcommService {
   }
 
   addSong(roomID, song:Song): Promise<any> {
-    
+    console.log(song.imageInformation);
     const body = {
         'track': song.track,
         'artist': song.artist,
         'album': song.album,
         'trackUID': song.trackUID,
         'upVotes': song.upVotes,
-        'downVotes': song.downVotes
+        'downVotes': song.downVotes,
+        'imageInformation': song.imageInformation
     };
     console.log(body);
     const promise = new Promise((resolve, reject) => {

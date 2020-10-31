@@ -37,7 +37,7 @@ export class PlaylistComponent implements OnInit {
     this.service.search(query)
       .then(res => {
         // Save found songs in songs Array
-        res['items'].forEach(Object => {
+        res.forEach(Object => {
           const song = new Song().deserialize(Object);
           this.songs.push(song);
         });
