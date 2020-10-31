@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'avatar', component: AvatarSelectionComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'playlist', component: PlaylistComponent },
+  { path: 'room/:id/playlist', component: PlaylistComponent },
 ];
 
 @NgModule({

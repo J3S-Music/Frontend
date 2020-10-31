@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendcommService } from '../services/backendcomm.service';  // service importieren
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-room',
@@ -14,7 +15,7 @@ export class RoomComponent implements OnInit {
   public roomID = '';
   public source = '';
 
-  constructor(private service: BackendcommService, private router: Router) { }
+  constructor(private service: BackendcommService, private router: Router, private cookieservice:CookieService) { }
 
   ngOnInit(): void {
     this.service.getRoomData()
@@ -24,6 +25,7 @@ export class RoomComponent implements OnInit {
         this.password = res['roomCode'];
         this.roomID = res['roomID'];
         this.source = res['connection']['name'];
+
 
       })
       .catch(error => {

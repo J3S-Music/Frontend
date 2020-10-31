@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { Song } from '../playlist/Song';
 
 @Injectable({
   providedIn: 'root'
@@ -142,10 +143,9 @@ export class BackendcommService {
 
 
   getRoomData(): Promise<any> {
-    const userID = this.cookieService.get('UserID');
-    const url = this.router.url;
+    const roomID = this.cookieService.get('RoomID');
     const promise = new Promise((resolve, reject) => {
-      this.http.get('http://localhost:8080' + url)
+      this.http.get('http://localhost:8080/room/' + roomID)
         .toPromise()
         .then(
           res => { // Success
@@ -221,5 +221,65 @@ export class BackendcommService {
     });
     return promise;
   }
+
+  getPlaylist(roomID): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      this.http.get('http://localhost:8080/room/' + roomID + '/playlist')
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
+    });
+    return promise;
+  }
+
+  deleteSong(roomID, songID): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      this.http.delete('http://localhost:8080/room/' + roomID + '/playlist/' + songID)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
+    });
+    return promise;
+  }
+
+  addSong(roomID, song:Song): Promise<any> {
+    
+    const body = {
+        'track': song.track,
+        'artist': song.artist,
+        'album': song.album,
+        'trackUID': song.trackUID,
+        'upVotes': song.upVotes,
+        'downVotes': song.downVotes
+    };
+    console.log(body);
+    const promise = new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/room/' + roomID + '/playlist', body)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
+    });
+    return promise;
+  }
+
+
 
 }

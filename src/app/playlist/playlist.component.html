@@ -1,7 +1,7 @@
 <!-- Suchleiste-->
 <div class="content" role="main">
 
-  <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:100%; padding: 1em 4em 0em 4em !important;">
+  <form class="text-center border border-light p-5" style="background-color: #9ea39f; width:100%; padding: 1em 4em 0em 4em !important; ">
     <h3 class="text-center">Search for music</h3>
     <div class="input-group search">
       <input type='text' id='search' class="form-control search-form" placeholder="Search a song (song + artist)"
@@ -26,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let Song of songs" class="tableelement">
+        <tr *ngFor="let Song of songs" class="tableelement" (click)="addSong(Song)">
           <th scope="row" class="cover"><img src={{Song.imageInformation[0].url}} class="cover"></th>
           <td class="tableelement tablefit">{{Song.track}}</td>
           <td class="tableelement tablefit">{{Song.artist}}</td>
@@ -36,26 +36,30 @@
     </table>
   </div>
 
-  <br>
+
+
 
   <!--Aktuelle Playlist noch anpassen -->
-  <!-- <div *ngIf="checkStatus()" class="scrollbar table-responsive">
+  <div class="scrollbar table-responsive" style="padding-top: 5vh !important;">
+    <div style="background-color: #9ea39f; padding-top: 1vh !important;">
+    <h3 class="text-center" >Playlist</h3>
     <table mdbTable mdbTableScroll scrollY="true" maxHeight="400" class="table table-hover table-sm align-middle">
       <thead>
         <tr>
-          <th *ngFor="let head of headElements;" scope="col">{{head}}</th>
+          <th *ngFor="let head of headElements2;" scope="col">{{head}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let Song of songs" class="tableelement">
-          <th scope="row" class="cover"><img src={{Song.imageInformation[0].url}} class="cover"></th>
-          <td class="tableelement tablefit">{{Song.track}}</td>
+        <tr *ngFor="let Song of playlist" class="tableelement">
+          <!--<th scope="row" class="cover"><img src={{Song.imageInformation[0].url}} class="cover"></th>-->
+          <th scope="row" class="tableelement tablefit">{{Song.track}}</th>
           <td class="tableelement tablefit">{{Song.artist}}</td>
           <td class="tableelement">{{Song.album}}</td>
         </tr>
       </tbody>
     </table>
-  </div> -->
+    </div>
+  </div>
 
 
 

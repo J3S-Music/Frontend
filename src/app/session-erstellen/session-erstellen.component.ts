@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BackendcommService } from '../services/backendcomm.service';  // service importieren
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-session-erstellen',
@@ -25,7 +26,7 @@ export class SessionErstellenComponent implements OnInit {
   public source: number;
 
 
-  constructor(private service: BackendcommService, private router: Router) { }
+  constructor(private service: BackendcommService, private router: Router, private cookieservice:CookieService) { }
 
   ngOnInit(): void {
     this.setDefault();
@@ -76,6 +77,7 @@ export class SessionErstellenComponent implements OnInit {
           .then(res => {
             console.log(res);
             this.router.navigate(['/room/' + res]);                     // Id hinzufügen
+            this.cookieservice.set("RoomID", res);
           })
           .catch(error => {
             console.log(error);                                        // error werfen

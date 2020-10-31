@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { BackendcommService } from '../services/backendcomm.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class SessionBeitretenComponent implements OnInit {
   FormRoomcode = new FormControl('');
   FormRoomID = new FormControl('');
 
-  constructor(private service: BackendcommService, private router: Router) { }
+  constructor(private service: BackendcommService, private router: Router, private cookieservice:CookieService) { }
 
   ngOnInit(): void {
   }
@@ -24,9 +25,10 @@ export class SessionBeitretenComponent implements OnInit {
     this.service.joinRoom(roomID, roomCode)
       .then(res => {
         this.router.navigate(['/room/' + roomID]);                     // Id hinzufügen
+        this.cookieservice.set("RoomID", roomID);
       })
       .catch(error => {
-        alert('Sind Sie behindert? Geben Sie bitte das richtige Passwort ein!');                                        // error werfen
+        alert('Unauthorized: Wrong Password');                                        // error werfen
       });
 
 
