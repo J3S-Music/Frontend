@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BackendcommService } from '../services/backendcomm.service';  // service importieren
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { ExternalcommService } from '../services/externalcomm.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { FormControl } from '@angular/forms';
 
 export class EinstellungenComponent implements OnInit {
 
-  constructor(private service: BackendcommService, private router: Router) {
+  constructor(private service: BackendcommService, private router: Router, private externalService: ExternalcommService) {
 
   }              // Service einfügen
   // public email = '';
@@ -88,6 +89,10 @@ export class EinstellungenComponent implements OnInit {
 
   isDefault(connection): boolean {
     return this.default === connection;
+  }
+
+  getSpotifyToken(){
+      this.externalService.getSpotifyToken()
   }
 
   isConnected(connection): boolean {
