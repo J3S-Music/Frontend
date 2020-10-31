@@ -92,18 +92,18 @@ export class BackendcommService {
     return promise;
   }
 
-  createRoom(roomname: string, password: string, connectionID:number): Promise<any> {
+  createRoom(roomname: string, password: string, connectionID: number): Promise<any> {
     const userID = this.cookieService.get('UserID');
     const body = {
       principle: 'Voting',
       roomName: roomname,
       roomCode: password,
-      connection:{
-        connectionID:connectionID
+      connection: {
+        'connectionID': connectionID
       }
-    }
+    };
     const params = new HttpParams()
-      .set('id', userID)
+      .set('id', userID);
 
     const promise = new Promise((resolve, reject) => {
       this.http.post('http://localhost:8080/room/create', body, { params })
@@ -124,10 +124,10 @@ export class BackendcommService {
 
     const params = new HttpParams()
       .set('userID', userID)
-      .set('roomCode', password)
+      .set('roomCode', password);
 
     const promise = new Promise((resolve, reject) => {
-      this.http.get('http://localhost:8080/room/'+roomID+'/join', { params })
+      this.http.get('http://localhost:8080/room/' + roomID + '/join', { params })
         .toPromise()
         .then(
           res => { // Success
@@ -143,7 +143,7 @@ export class BackendcommService {
 
   getRoomData(): Promise<any> {
     const userID = this.cookieService.get('UserID');
-    const url = this.router.url
+    const url = this.router.url;
     const promise = new Promise((resolve, reject) => {
       this.http.get('http://localhost:8080' + url)
         .toPromise()
@@ -183,7 +183,7 @@ export class BackendcommService {
       'password': password,
       'name': name,
       'email': email,
-    }
+    };
 
     const promise = new Promise((resolve, reject) => {
       this.http.put('http://localhost:8080/users/' + userID, body)
@@ -199,15 +199,15 @@ export class BackendcommService {
     return promise;
   }
 
-  search(track:string): Promise<any> {
+  search(track: string): Promise<any> {
     const body = {
-      "q": {
-        "track": track
+      'q': {
+        'track': track
       },
-      "type": [
-        "track"
+      'type': [
+        'track'
       ]
-    }
+    };
     const promise = new Promise((resolve, reject) => {
       this.http.post('http://localhost:8080/search', body)
         .toPromise()

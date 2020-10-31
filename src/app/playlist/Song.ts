@@ -1,20 +1,18 @@
 import { Deserializable } from './Deserializable';
-import { imageInformation } from './imageInformation';
+import { ImageInformation } from './ImageInformation';
 
-export class Song implements Deserializable{
+export class Song implements Deserializable {
 
     artist: string;
     album: string;
-    imageInformation: Array<imageInformation>;
+    imageInformation: Array<ImageInformation>;
     upVotes: number;
     track: string;
     trackUID: string;
-    downVotes: number; 
-
+    downVotes: number;
 
     deserialize(input: any): this {
-       Object.assign(this, input);
-       return this;
+        Object.assign(this, input);
+        return this;
     }
-
 }

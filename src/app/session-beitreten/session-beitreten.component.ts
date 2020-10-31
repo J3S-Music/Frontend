@@ -13,21 +13,21 @@ export class SessionBeitretenComponent implements OnInit {
   FormRoomcode = new FormControl('');
   FormRoomID = new FormControl('');
 
-  constructor(private service: BackendcommService, private router:Router) { }
+  constructor(private service: BackendcommService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  joinRoom(){
-    var roomID = this.FormRoomID.value;
-    var roomCode = this.FormRoomcode.value;
+  joinRoom(): void {
+    const roomID = this.FormRoomID.value;
+    const roomCode = this.FormRoomcode.value;
     this.service.joinRoom(roomID, roomCode)
-    .then(res => {
-      this.router.navigate(['/room/' + roomID]);                     // Id hinzufügen
-    })
-    .catch(error => {
-      alert("Sind Sie behindert? Geben Sie bitte das richtige Passwort ein!")                                        // error werfen
-    });
+      .then(res => {
+        this.router.navigate(['/room/' + roomID]);                     // Id hinzufügen
+      })
+      .catch(error => {
+        alert('Sind Sie behindert? Geben Sie bitte das richtige Passwort ein!');                                        // error werfen
+      });
 
 
 

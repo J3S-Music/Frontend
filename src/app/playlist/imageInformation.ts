@@ -1,6 +1,6 @@
 import { Deserializable } from './Deserializable';
 
-export class imageInformation implements Deserializable{
+export class ImageInformation implements Deserializable {
     width: string;
     url: string;
     height: string;

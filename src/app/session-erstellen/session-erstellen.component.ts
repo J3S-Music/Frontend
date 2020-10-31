@@ -31,15 +31,15 @@ export class SessionErstellenComponent implements OnInit {
     this.setDefault();
   }
 
-  setDefault(){
+  setDefault(): void {
     this.service.getConnectionData()
-    .then(res => {
-      this.default = this.getDefault(res);
-      this.selectDefault();
-    })
-    .catch(error => {
-      console.log(error + ' Keine userdaten');                  // error werfen
-    });
+      .then(res => {
+        this.default = this.getDefault(res);
+        this.selectDefault();
+      })
+      .catch(error => {
+        console.log(error + ' Keine userdaten');                  // error werfen
+      });
   }
 
   getDefault(list): number {
@@ -64,17 +64,17 @@ export class SessionErstellenComponent implements OnInit {
     const pw1 = this.FormPassword1.value;
     const pw2 = this.FormPassword2.value;
     const roomname = this.FormRoomName.value;
-    if(this.FormSource.value!==''){
+    if (this.FormSource.value !== '') {
       this.source = this.FormSource.value;
     }
-    console.log('PW1: '+pw1+', PW2: ' + pw2 +', RoomName: '+ roomname +', Source: '+ this.source);
-    if (pw1 === '' || pw2 === '' || roomname === '' || this.source ===null) {
+    console.log('PW1: ' + pw1 + ', PW2: ' + pw2 + ', RoomName: ' + roomname + ', Source: ' + this.source);
+    if (pw1 === '' || pw2 === '' || roomname === '' || this.source === null) {
       alert('Please fill in all requiered fields!');
     } else {
       if (this.checkPasswords(pw1, pw2)) {
         this.service.createRoom(roomname, pw1, this.source)
           .then(res => {
-            console.log(res)
+            console.log(res);
             this.router.navigate(['/room/' + res]);                     // Id hinzufügen
           })
           .catch(error => {
@@ -87,41 +87,41 @@ export class SessionErstellenComponent implements OnInit {
     }
   }
 
-  selectDefault(){
+  selectDefault(): void {
     console.log(this.default);
-      switch(this.default){
-        case 1:{
-          this.SpotifySelect = true;
-          this.source = 1;
-          console.log('Spotify select'+this.source);
-          break;
-        }
-        case 2:{
-          this.AppleSelect = true;
-          this.source = 2;
-          console.log('Apple select'+this.source);
-          break;
-        }
-        case 3:{
-          this.SoundcloudSelect = true;
-          this.source = 3;
-          console.log('Soundcloud select'+this.source);
-          break;
-        }
-        case 4:{
-          this.YoutubeSelect = true;
-          this.source = 4;
-          console.log('Youtube select'+this.source);
-          break;
-        }
-        default:{
-          this.SelectedNothing = true;
-          console.log('Nothing select');
-          break;
-        }
+    switch (this.default) {
+      case 1: {
+        this.SpotifySelect = true;
+        this.source = 1;
+        console.log('Spotify select' + this.source);
+        break;
+      }
+      case 2: {
+        this.AppleSelect = true;
+        this.source = 2;
+        console.log('Apple select' + this.source);
+        break;
+      }
+      case 3: {
+        this.SoundcloudSelect = true;
+        this.source = 3;
+        console.log('Soundcloud select' + this.source);
+        break;
+      }
+      case 4: {
+        this.YoutubeSelect = true;
+        this.source = 4;
+        console.log('Youtube select' + this.source);
+        break;
+      }
+      default: {
+        this.SelectedNothing = true;
+        console.log('Nothing select');
+        break;
       }
     }
   }
+}
 
 
 

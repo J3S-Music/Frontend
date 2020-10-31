@@ -18,18 +18,17 @@ export class PlaylistComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  search() {
-    //clear songs Array
+  search(): void {
+    // clear songs Array
     this.songs = [];
-    //Get Search Query from User Input
+    // Get Search Query from User Input
     const query = this.FormSearch.value;
-    //Call Backend
+    // Call Backend
     this.service.search(query)
       .then(res => {
-        //Save found songs in songs Array
+        // Save found songs in songs Array
         res['items'].forEach(Object => {
-          var song = new Song().deserialize(Object);
+          const song = new Song().deserialize(Object);
           this.songs.push(song);
         });
         console.log(this.songs);

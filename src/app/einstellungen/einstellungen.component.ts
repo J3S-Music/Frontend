@@ -38,10 +38,10 @@ export class EinstellungenComponent implements OnInit {
         // this.name = res['name'];
         // this.email = res['email'];
 
-        this.FormName.setValue(res['name'])
-        this.FormEmail.setValue(res['email'])
-        this.FormPassword1.setValue(res['password'])
-        this.FormPassword2.setValue(res['password'])
+        this.FormName.setValue(res['name']);
+        this.FormEmail.setValue(res['email']);
+        this.FormPassword1.setValue(res['password']);
+        this.FormPassword2.setValue(res['password']);
         this.avatar = '../assets/' + res['avatar']['pictureName'];
       })
       .catch(error => {
@@ -134,7 +134,7 @@ export class EinstellungenComponent implements OnInit {
         this.service.editSettings(name, email, password1)
           .then(res => {
             // Success
-            alert('Success')
+            alert('Success');
           })
           .catch(error => {
             alert('Email already used!');                                        // error werfen
