@@ -41,7 +41,8 @@ export class SigninComponent implements OnInit {
         this.router.navigate(['/home']);
         })
         .catch(error => {
-          console.log(error);                                        // error werfen
+          console.log(error);
+          alert("Username or Password incorrect!")                                        // error werfen
         });
     }
   }

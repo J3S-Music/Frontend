@@ -36,6 +36,9 @@ export class BackendcommService {
       'email': email,
       'avatar': {
         avatarID: 1
+      },
+      'role': {
+        'roleID': 1
       }
     };
     const promise = new Promise((resolve, reject) => {
@@ -57,6 +60,7 @@ export class BackendcommService {
     const body = {
       'password': password,
       'email': email
+
     };
     const promise = new Promise((resolve, reject) => {
       this.http.post('http://localhost:8080/login', body)

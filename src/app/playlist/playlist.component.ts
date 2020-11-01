@@ -53,7 +53,7 @@ export class PlaylistComponent implements OnInit {
     console.log(song);
     this.service.addSong(this.roomID, song)
     .then(res => {
-      this.playlist.push(song);
+      this.getPlaylist(this.roomID);
     })
     .catch(error => {
       console.log(error);                  // error werfen

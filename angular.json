@@ -39,8 +39,7 @@
           ],
           "scripts": [
             "node_modules/chart.js/dist/Chart.js",
-            "node_modules/hammerjs/hammer.min.js",
-            "https://sdk.scdn.co/spotify-player.js"
+            "node_modules/hammerjs/hammer.min.js"
           ]
           },
           "configurations": {
