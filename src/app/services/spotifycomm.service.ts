@@ -11,6 +11,8 @@ export class SpotifycommService {
   constructor(private http: HttpClient,  private router: Router, private externalService:ExternalcommService) { }
   token=this.externalService.bearer;
 
+  
+
 /*
   addSongtoPlaylist (): Promise<any>{
   const promise = new Promise((resolve, reject) => {

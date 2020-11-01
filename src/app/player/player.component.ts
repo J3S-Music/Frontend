@@ -23,9 +23,10 @@ export class PlayerComponent implements OnInit {
 
     let cookieRoomID =  this.cookieservice.get('RoomID');
     let urlRoomID  = this.route.snapshot.paramMap.get('id');
-    const token=this.externalService.bearer;
+    let ij=this.externalService.getBearer();
+    console.log(ij);
     if(cookieRoomID===urlRoomID){
-      if(token===null){
+      if(ij===null){
         alert("Token nicht vorhanden!");
         this.router.navigate(['/settings']);
       }

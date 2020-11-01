@@ -42,12 +42,10 @@ export class ExternalcommService {
     const response_type= 'code';
     const scope='streaming user-read-email user-read-private user-read-currently-playing user-read-playback-state user-modify-playback-state';
     let URL=url+'?'+'client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type='+response_type+'&scope='+scope;
-    console.log(URL);
     window.location.href = URL;
   }
 
   postSpotifyToken(token): Promise<any> {
-    console.log(token);
       const body = new HttpParams()
       .set('grant_type', 'authorization_code')
       .set('code', token)
@@ -64,9 +62,10 @@ export class ExternalcommService {
         .toPromise()
         .then(
           res => { // Success
-            resolve(res);
             this.bearer = res['access_token'];
-            console.log(this.bearer);
+            //console.log('postSpotifyToken: '+this.bearer);
+            this.getBearer();
+            resolve(res);
           },
           error => { // Error Serverfehler
             reject(error);
@@ -74,6 +73,11 @@ export class ExternalcommService {
         );
     });
     return promise;
+  }
+
+  getBearer(){
+    console.log('GetBearer: '+this.bearer);
+    return this.bearer;
   }
 
 

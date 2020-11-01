@@ -67,11 +67,9 @@ export class EinstellungenComponent implements OnInit {
         this.token = queryParams.get("code")
       })
       if(this.token!==null){
-        console.log("token:"+this.token);
         this.externalService.postSpotifyToken(this.token)
         .then(res => {
           this.bearer = res['access_token'];
-          console.log(this.bearer);
         }).catch(error => {
           console.log(error);
         });
