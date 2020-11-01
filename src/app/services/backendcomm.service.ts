@@ -288,7 +288,7 @@ export class BackendcommService {
 
   upVote(roomID, songID): Promise<any> {
     const promise = new Promise((resolve, reject) => {
-      this.http.delete('http://localhost:8080/room/' + roomID + '/playlist/' + songID + '/upvote')
+      this.http.get('http://localhost:8080/room/' + roomID + '/playlist/' + songID + '/upvote')
         .toPromise()
         .then(
           res => { // Success
@@ -304,7 +304,7 @@ export class BackendcommService {
 
   downVote(roomID, songID): Promise<any> {
     const promise = new Promise((resolve, reject) => {
-      this.http.delete('http://localhost:8080/room/' + roomID + '/playlist/' + songID + '/downvote')
+      this.http.get('http://localhost:8080/room/' + roomID + '/playlist/' + songID + '/downvote')
         .toPromise()
         .then(
           res => { // Success

@@ -46,7 +46,7 @@
     <table mdbTable mdbTableScroll scrollY="true" maxHeight="400" class="table table-hover table-sm align-middle">
       <thead>
         <tr>
-          <th *ngFor="let head of headElements;" scope="col">{{head}}</th>
+          <th *ngFor="let head of headElements2;" scope="col">{{head}}</th>
         </tr>
       </thead>
       <tbody>
@@ -55,9 +55,9 @@
           <th scope="row" class="tableelement tablefit">{{Song.track}}</th>
           <td class="tableelement tablefit">{{Song.artist}}</td>
           <td class="tableelement">{{Song.album}}</td>
-          <td class="tableelement" (click)="upVote(Song)"><i class="fas fa-thumbs-up"></i>{{Song.upVotes}}</td>
-          <td class="tableelement" (click)="downVote(Song)"><i class="fas fa-thumbs-down"></i>{{Song.downVotes}}</td>
-          <td class="tableelement" (click)="delete(Song)"><i class="fas fa-minus-square"></i>Delete</td>
+          <td class="tableelement text-center" (click)="upVote(Song)"><i class="fas fa-thumbs-up"></i> {{Song.upVotes}}</td>
+          <td class="tableelement text-center" (click)="downVote(Song)"><i class="fas fa-thumbs-down"></i> {{Song.downVotes}}</td>
+          <td class="tableelement text-center" (click)="delete(Song)"><i class="fas fa-minus-square"></i></td>
         </tr>
       </tbody>
     </table>

@@ -1,7 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BackendcommService } from '../services/backendcomm.service';
 import { Song } from './Song';
@@ -13,19 +13,28 @@ import { Song } from './Song';
 })
 export class PlaylistComponent implements OnInit {
 
-  constructor(private service: BackendcommService, private cookieservice: CookieService, private router: Router) { }
+  constructor(private service: BackendcommService, private cookieservice: CookieService, private router: Router, private route:ActivatedRoute) { }
 
   headElements = ['Cover', 'Track', 'Artist', 'Album'];
-  headElements2 = ['Track', 'Artist', 'Album'];
+  headElements2 = ['Cover', 'Track', 'Artist', 'Album', 'Upvotes', 'Downvotes', 'Delete'];
   public songs: Song[] = new Array();
   FormSearch = new FormControl('');
   public playlist: Song[] = new Array();
   private roomID;
 
   ngOnInit(): void {
-    this.roomID = this.cookieservice.get('RoomID');
-    console.log(this.roomID);
-    this.getPlaylist(this.roomID);
+    let cookieRoomID =  this.cookieservice.get('RoomID');
+    let urlRoomID  = this.route.snapshot.paramMap.get('id');
+    console.log("Cookie: "+cookieRoomID+", URL: "+urlRoomID);
+    if(cookieRoomID===urlRoomID){
+      this.roomID = this.cookieservice.get('RoomID');
+      console.log(this.roomID);
+      this.getPlaylist(this.roomID);
+    }else{
+      alert('Unauthorized!');
+      this.router.navigate(['/home']);
+    }
+
   }
 
   search(): void {
@@ -61,7 +70,7 @@ export class PlaylistComponent implements OnInit {
 
   delete(song: Song): void {
     this.songs = [];
-    this.service.deleteSong(this.roomID, song)
+    this.service.deleteSong(this.roomID, song.trackUID)
       .then(res => {
         this.getPlaylist(this.roomID);
       })
@@ -72,7 +81,7 @@ export class PlaylistComponent implements OnInit {
 
   upVote(song: Song): void {
     this.songs = [];
-    this.service.upVote(this.roomID, song)
+    this.service.upVote(this.roomID, song.trackUID)
       .then(res => {
         this.getPlaylist(this.roomID);
       })
@@ -83,7 +92,7 @@ export class PlaylistComponent implements OnInit {
 
   downVote(song: Song): void {
     this.songs = [];
-    this.service.downVote(this.roomID, song)
+    this.service.downVote(this.roomID, song.trackUID)
       .then(res => {
         this.getPlaylist(this.roomID);
       })

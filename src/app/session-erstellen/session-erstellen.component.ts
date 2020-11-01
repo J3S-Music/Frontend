@@ -77,7 +77,7 @@ export class SessionErstellenComponent implements OnInit {
           .then(res => {
             console.log(res);
             this.router.navigate(['/room/' + res]);                     // Id hinzufügen
-            this.cookieservice.set("RoomID", res);
+            this.cookieservice.set("RoomID", res, 86400, '/');
           })
           .catch(error => {
             console.log(error);                                        // error werfen

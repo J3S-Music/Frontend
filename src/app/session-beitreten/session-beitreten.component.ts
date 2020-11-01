@@ -25,15 +25,10 @@ export class SessionBeitretenComponent implements OnInit {
     this.service.joinRoom(roomID, roomCode)
       .then(res => {
         this.router.navigate(['/room/' + roomID]);                     // Id hinzufügen
-        this.cookieservice.set("RoomID", roomID);
+        this.cookieservice.set('RoomID', roomID, 86400, '/');
       })
       .catch(error => {
         alert('Unauthorized: Wrong Password');                                        // error werfen
       });
-
-
-
-
-
   }
 }
