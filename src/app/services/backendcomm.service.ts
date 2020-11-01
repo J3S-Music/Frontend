@@ -259,16 +259,16 @@ export class BackendcommService {
     return promise;
   }
 
-  addSong(roomID, song:Song): Promise<any> {
+  addSong(roomID, song: Song): Promise<any> {
     console.log(song.imageInformation);
     const body = {
-        'track': song.track,
-        'artist': song.artist,
-        'album': song.album,
-        'trackUID': song.trackUID,
-        'upVotes': song.upVotes,
-        'downVotes': song.downVotes,
-        'imageInformation': song.imageInformation
+      'track': song.track,
+      'artist': song.artist,
+      'album': song.album,
+      'trackUID': song.trackUID,
+      'upVotes': song.upVotes,
+      'downVotes': song.downVotes,
+      'imageInformation': song.imageInformation
     };
     console.log(body);
     const promise = new Promise((resolve, reject) => {
@@ -286,6 +286,36 @@ export class BackendcommService {
     return promise;
   }
 
+  upVote(roomID, songID): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      this.http.delete('http://localhost:8080/room/' + roomID + '/playlist/' + songID + '/upvote')
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
+    });
+    return promise;
+  }
 
+  downVote(roomID, songID): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      this.http.delete('http://localhost:8080/room/' + roomID + '/playlist/' + songID + '/downvote')
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
+    });
+    return promise;
+  }
 
 }

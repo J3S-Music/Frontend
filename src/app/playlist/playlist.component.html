@@ -55,6 +55,9 @@
           <th scope="row" class="tableelement tablefit">{{Song.track}}</th>
           <td class="tableelement tablefit">{{Song.artist}}</td>
           <td class="tableelement">{{Song.album}}</td>
+          <td class="tableelement" (click)="upVote(Song)"><i class="fas fa-thumbs-up"></i>{{Song.upVotes}}</td>
+          <td class="tableelement" (click)="downVote(Song)"><i class="fas fa-thumbs-down"></i>{{Song.downVotes}}</td>
+          <td class="tableelement" (click)="delete(Song)"><i class="fas fa-minus-square"></i>Delete</td>
         </tr>
       </tbody>
     </table>
