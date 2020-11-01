@@ -19,6 +19,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RoomComponent } from './room/room.component';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { RoomComponent } from './room/room.component';
     SignupComponent,
     PlaylistComponent,
     RoomComponent,
+    PlayerComponent,
 
   ],
   imports: [

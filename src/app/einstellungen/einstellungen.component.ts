@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendcommService } from '../services/backendcomm.service';  // service importieren
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { ExternalcommService } from '../services/externalcomm.service';
 
@@ -14,7 +14,7 @@ import { ExternalcommService } from '../services/externalcomm.service';
 
 export class EinstellungenComponent implements OnInit {
 
-  constructor(private service: BackendcommService, private router: Router, private externalService: ExternalcommService) {
+  constructor(private service: BackendcommService, private router: Router, private externalService: ExternalcommService, private route: ActivatedRoute) {
 
   }              // Service einfügen
   // public email = '';
@@ -25,6 +25,8 @@ export class EinstellungenComponent implements OnInit {
   public AppleStatus = false;
   public YoutubeStatus = false;
   public SoundcloudStatus = false;
+  public token;
+  public bearer;
 
   FormName = new FormControl('');
   FormEmail = new FormControl('');
@@ -60,6 +62,21 @@ export class EinstellungenComponent implements OnInit {
         console.log(error + ' Keine userdaten');
       });
 
+     
+      this.route.queryParamMap.subscribe(queryParams => {
+        this.token = queryParams.get("code")
+      })
+      if(this.token!==null){
+        console.log("token:"+this.token);
+        this.externalService.postSpotifyToken(this.token)
+        .then(res => {
+          this.bearer = res['access_token'];
+          console.log(this.bearer);
+        }).catch(error => {
+          console.log(error);
+        });
+      }
+      
     // resolve-> gehts in then bei catch also fehler reject
   }
 
@@ -92,7 +109,7 @@ export class EinstellungenComponent implements OnInit {
   }
 
   getSpotifyToken(){
-      this.externalService.getSpotifyToken()
+      this.externalService.getSpotifyToken();
   }
 
   isConnected(connection): boolean {
