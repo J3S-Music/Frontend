@@ -131,7 +131,7 @@ export class BackendcommService {
     const params = new HttpParams()
       .set('userID', userID)
       .set('roomCode', password);
-    
+
     const promise = new Promise((resolve, reject) => {
       this.http.get('http://localhost:8080/room/' + roomID + '/join', { params })
         .toPromise()
@@ -230,6 +230,22 @@ export class BackendcommService {
   getPlaylist(roomID): Promise<any> {
     const promise = new Promise((resolve, reject) => {
       this.http.get('http://localhost:8080/room/' + roomID + '/playlist')
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          error => { // Error Serverfehler
+            reject(error);
+          }
+        );
+    });
+    return promise;
+  }
+
+  getNext(roomID): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      this.http.get('http://localhost:8080/room/' + roomID + '/playlist/getNext')
         .toPromise()
         .then(
           res => { // Success

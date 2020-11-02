@@ -118,4 +118,10 @@ export class PlaylistComponent implements OnInit {
     return this.songs.length !== 0;
   }
 
+
+  navigateBack(){
+    this.router.navigate(['/room/'+this.roomID]);
+  }
+
+
 }
