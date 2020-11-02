@@ -145,6 +145,11 @@ export class PlayerComponent implements OnInit {
       });
   }
 
+  
+  navigateBack(){
+    this.router.navigate(['/room/'+this.roomID]);
+  }
+
 
 
 

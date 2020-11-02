@@ -3,37 +3,34 @@
 
 
 <div class="card-container songDiv" *ngFor="let Song of songs">
-    <img src={{Song.imageInformation[0].url}} class="img-thumbnail cover center">
+    <img src={{Song.imageInformation[0].url}} class="cover center">
     <h3 style="text-align: center;">{{Song.track}}</h3>
     <h5 style="text-align: center;">{{Song.artist}}</h5>
-</div>
 
 
-<!--
-<a routerLink="/home"> <img width="360" height="64" alt="googleLogin" class="center" src="../assets/Login_google.png" /></a>
--->
 
-<div class="card-container">
-    <a class="card" (click)="playPrevious()">
+<div class="card-container controls-container">
+    <a class="card controls" (click)="playPrevious()">
         <i class="fas fa-chevron-left"></i>
-        <!--<mdb-icon fas icon="chevron-left"></mdb-icon>-->
     </a>
 
-    <a class="card" (click)="pause()">
+    <a class="card controls" (click)="pause()">
         <i class="fas fa-pause"></i>
-        <!--<mdb-icon fab icon="500px"></mdb-icon>-->
     </a>
 
-    <a class="card" (click)="playSong()">
+    <a class="card controls" (click)="playSong()">
         <i class="fas fa-play"></i>
-        <!--<mdb-icon fab icon="500px"></mdb-icon>-->
     </a>
     
-    <a class="card" (click)="playNext()">
+    <a class="card controls" (click)="playNext()">
         <i class="fas fa-chevron-right"></i>
-        <!--<mdb-icon fas icon="chevron-right"></mdb-icon>>-->
     </a>
     </div>
 
-
+</div>
+<div class="card-container" style="margin-top: 20px;">
+    <a class="card" (click)="navigateBack()">
+        <span style="font-size: 20px;">Back</span>
+    </a>
+</div>
   </div>
