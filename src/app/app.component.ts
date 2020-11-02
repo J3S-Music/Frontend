@@ -26,5 +26,12 @@ export class AppComponent {
 
   logout(): void{
     this.cookieService.delete('UserID');
+    this.cookieService.delete('RoomID');
+  }
+  openSettings(){
+    this.router.navigate(['/settings']);
+  }
+  checkUserCookie(): boolean{
+    return this.cookieService.check('UserID');
   }
 }

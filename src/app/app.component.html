@@ -13,6 +13,9 @@
   <div class="spacer"></div>
   <span style="color:black" >Welcome to the <br> party revolution</span>
     <div class="spacer"></div>
+    <a id="settingButton" (click)="openSettings()" *ngIf="checkUserCookie()">
+      <i class="fas fa-user-circle icon fa-2x" (click)="openSettings()" *ngIf="checkUserCookie()"></i>
+    </a>
     <a aria-label="Abmelden" (click)="logout()">
       <img
     width="60"
