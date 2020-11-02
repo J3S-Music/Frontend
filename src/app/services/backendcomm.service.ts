@@ -131,7 +131,7 @@ export class BackendcommService {
     const params = new HttpParams()
       .set('userID', userID)
       .set('roomCode', password);
-
+    
     const promise = new Promise((resolve, reject) => {
       this.http.get('http://localhost:8080/room/' + roomID + '/join', { params })
         .toPromise()

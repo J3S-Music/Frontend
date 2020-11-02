@@ -63,6 +63,7 @@ export class ExternalcommService {
         .then(
           res => { // Success
             this.bearer = res['access_token'];
+            localStorage.setItem('Bearer',this.bearer);
             //console.log('postSpotifyToken: '+this.bearer);
             this.getBearer();
             resolve(res);
