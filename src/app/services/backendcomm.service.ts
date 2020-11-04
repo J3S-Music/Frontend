@@ -60,7 +60,6 @@ export class BackendcommService {
     const body = {
       'password': password,
       'email': email
-
     };
     const promise = new Promise((resolve, reject) => {
       this.http.post('http://localhost:8080/login', body)
@@ -205,16 +204,11 @@ export class BackendcommService {
   }
 
   search(track: string): Promise<any> {
-    const body = {
-      'q': {
-        'track': track
-      },
-      'type': [
-        'track'
-      ]
-    };
+    const params = new HttpParams()
+    .set('q',track);
+
     const promise = new Promise((resolve, reject) => {
-      this.http.post('http://localhost:8080/search', body)
+      this.http.get('http://localhost:8080/search', {params})
         .toPromise()
         .then(
           res => { // Success
