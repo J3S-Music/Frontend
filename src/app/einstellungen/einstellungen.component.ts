@@ -16,9 +16,7 @@ export class EinstellungenComponent implements OnInit {
 
   constructor(private service: BackendcommService, private router: Router, private externalService: ExternalcommService, private route: ActivatedRoute) {
 
-  }              // Service einfügen
-  // public email = '';
-  // public name = '';
+  }              
   public avatar = '';
   public default = '';
   public SpotifyStatus = false;
@@ -33,14 +31,12 @@ export class EinstellungenComponent implements OnInit {
   FormPassword1 = new FormControl('');
   FormPassword2 = new FormControl('');
 
-  /*****************************************GET BEFEHL*************************************************/
+ 
   ngOnInit(): void {
+    //Hole Userdaten von Datenbank aus Backend bei Initialisierung
     this.service.getUserData()
       .then(res => {
-        // Success
-        // this.name = res['name'];
-        // this.email = res['email'];
-
+        //Speicher Ergebnisse aus Backend in Attribute
         this.FormName.setValue(res['name']);
         this.FormEmail.setValue(res['email']);
         this.FormPassword1.setValue(res['password']);
@@ -48,11 +44,12 @@ export class EinstellungenComponent implements OnInit {
         this.avatar = '../assets/' + res['avatar']['pictureName'];
       })
       .catch(error => {
-        console.log(error + ' Keine userdaten');                  // error werfen
+        console.log(error + ' Keine userdaten');
       });
-
+    //Hole Connections von Datenbank aus Backend bei Initialisierung
     this.service.getConnectionData()
       .then(res => {
+        //Speicher Ergebnisse aus Backend in Attribute
         this.default = this.getDefault(res);
         this.SpotifyStatus = this.getConnectionStatus(res, 'Spotify');
         this.AppleStatus = this.getConnectionStatus(res, 'Apple Music');
@@ -62,11 +59,12 @@ export class EinstellungenComponent implements OnInit {
         console.log(error + ' Keine userdaten');
       });
 
-     
+      //Speicher Authentication Token von Spotify zwischen
       this.route.queryParamMap.subscribe(queryParams => {
         this.token = queryParams.get("code")
       })
       if(this.token!==null){
+        //Austausch Authentication Token und Bearer Token
         this.externalService.postSpotifyToken(this.token)
         .then(res => {
           this.bearer = res['access_token'];
@@ -74,42 +72,43 @@ export class EinstellungenComponent implements OnInit {
           console.log(error);
         });
       }
-      
-    // resolve-> gehts in then bei catch also fehler reject
   }
 
+  //Gehe Connection Liste durch und setze Default Attribut
   getDefault(list): string {
     let def = '';
     list.forEach(value => {
       if (value['_default']) {
         def = value['connection']['name'];
-        console.log('Found Default: ' + def);
         return def;
       }
     });
     return def;
   }
 
+  //Hole Status von Connections
   getConnectionStatus(list, connection): boolean {
     let status = false;
     list.forEach(value => {
       if (value['connection']['name'] === connection) {
         status = value['active'];
-        console.log(connection + ' Status: ' + status);
         return status;
       }
     });
     return status;
   }
 
+  //Überprüfung ob Default übergebene Connection ist
   isDefault(connection): boolean {
     return this.default === connection;
   }
 
+  //Öffne Spotify Authentication
   getSpotifyToken(){
       this.externalService.getSpotifyToken();
   }
 
+  //Setzte Connection Status von Checkbox
   isConnected(connection): boolean {
     let status: boolean;
     switch (connection) {
@@ -133,7 +132,6 @@ export class EinstellungenComponent implements OnInit {
         break;
       }
       default: {
-        // console.log("Spasst");
         status = false;
         break;
       }
@@ -141,6 +139,7 @@ export class EinstellungenComponent implements OnInit {
     return status;
   }
 
+  //Hole Settings aus Input Fields, Evaluation und speicher ins Backend
   public editSettings(): void {
     const name = this.FormName.value;
     const email = this.FormEmail.value;
@@ -153,11 +152,11 @@ export class EinstellungenComponent implements OnInit {
       if (this.checkPasswords(password1, password2)) {
         this.service.editSettings(name, email, password1)
           .then(res => {
-            // Success
+        
             alert('Success');
           })
           .catch(error => {
-            alert('Email already used!');                                        // error werfen
+            alert('Email already used!');                                        
           });
       }
       else {
@@ -166,6 +165,7 @@ export class EinstellungenComponent implements OnInit {
     }
   }
 
+  //Überprüfe ob Passwörter gleich sein
   checkPasswords(pw1, pw2): boolean {
     if (pw1 === pw2) {
       return true;

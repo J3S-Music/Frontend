@@ -7,15 +7,13 @@
       <img alt="avatar" class="avatar" style="vertical-align:middle;" target="_self" rel="noopener"
         routerLink="/avatar" src={{avatar}} />
     </div>
-    <!-- Username / UserID -->
-    
     <a class="list-group list-group-flush" style="vertical-align:middle;margin-top:2%">
       <li class="list-group-item">
         <h6 style="color:rgb(0, 0, 0); text-align: center;">Change settings:</h6>
       </li>
       <li class="list-group-item">
         <div class="form-group row">
-          <!-- Default input -->
+          <!-- Username Input-->
           <label for="defaultSubscriptionFormName" class="col-sm-3 col-form-label">Name:</label>
           <div class="col-sm-9">
             <input type="text" [formControl]="FormName" id="defaultSubscriptionFormName"
@@ -25,7 +23,7 @@
       </li>
       <li class="list-group-item">
         <div class="form-group row">
-          <!-- Default input -->
+          <!-- Email Input-->
           <label for="defaultSubscriptionFormEmail" class="col-sm-3 col-form-label">Email:
           </label>
           <div class="col-sm-9">
@@ -36,7 +34,7 @@
       </li>
       <li class="list-group-item">
         <div class="form-group row">
-          <!-- Default input -->
+          <!-- Passwort Input-->
           <label for="defaultSubscriptionFormPas1" class="col-sm-3 col-form-label">Password:</label>
           <div class="col-sm-9">
             <input type="password" [formControl]="FormPassword1" id="defaultSubscriptionFormPas1"
@@ -46,7 +44,7 @@
       </li>
       <li class="list-group-item">
         <div class="form-group row">
-          <!-- Default input -->
+          <!-- Passwort bestätigen Input-->
           <label for="defaultSubscriptionFormPas2" class="col-sm-3 col-form-label">Repeat password:</label>
           <div class="col-sm-9">
             <input type="password" [formControl]="FormPassword2" id="defaultSubscriptionFormPas2"
@@ -55,7 +53,7 @@
         </div>
       </li>
     </a>
-
+    <!-- Save Settings -->
     <div class="card-container" style="margin-top: 20px;">
       <a class="card" target="_self" rel="noopener" (click)="editSettings()">
         <span style="font-size: 20px;">Save Changes</span>
@@ -117,17 +115,9 @@
         <img width=70% height=90% src="../assets/soundcloud.png" class="custom-control-inline">
       </label>
     </div>
-
-    <!-- Submit your default app
-    <div class="card-container">
-      <a class="card" target="_self" routerLink="/settings">
-        <span style="font-size: 20px;">submit</span>
-      </a>
-    </div>
-     -->
   </a>
 
-
+  <!---->
   <div class="card-container" style="margin-top: 20px;">
     <a class="card" target="_self" rel="noopener" routerLink="/home">
       <span style="font-size: 20px;">Back</span>

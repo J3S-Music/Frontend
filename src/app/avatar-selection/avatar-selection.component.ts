@@ -16,16 +16,16 @@ export class AvatarSelectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Change Avatar Funktion
+  //ID spricht jeweilige Avatar ID in DB an
   changeAvatar(id): void {
-    console.log(id);
+    //Backend Call
     this.service.changeAvatar(id)
     .then(res => {
-      // Success
-      console.log(res);
       this.router.navigate(['/settings']);
     })
     .catch(error => {
-      console.log(error);                                        // error werfen
+      console.log(error);                                
     });
   }
 }
