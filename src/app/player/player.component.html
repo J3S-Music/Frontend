@@ -1,14 +1,14 @@
 <div class="content" role="main">
 
 
-
+<!-- Cover, Songtitel und Interpret -->
 <div class="card-container songDiv" *ngFor="let Song of songs">
     <img src={{Song.imageInformation[0].url}} class="cover center">
     <h3 style="text-align: center;">{{Song.track}}</h3>
     <h5 style="text-align: center;">{{Song.artist}}</h5>
 
 
-
+<!-- Player Controls -->
 <div class="card-container controls-container">
     <a class="card controls" (click)="playPrevious()">
         <i class="fas fa-chevron-left"></i>
@@ -28,6 +28,7 @@
     </div>
 
 </div>
+<!-- Zurück Button -->
 <div class="card-container" style="margin-top: 20px;">
     <a class="card" (click)="navigateBack()">
         <span style="font-size: 20px;">Back</span>

@@ -29,16 +29,14 @@ export class PlayerComponent implements OnInit {
   public songs: Song[] = new Array();
 
   ngOnInit(): void {
+    //Hole RoomID, UserID und Bearere Token
     let cookieRoomID = this.cookieservice.get('RoomID');
     let urlRoomID = this.route.snapshot.paramMap.get('id');
     this.bearer = localStorage.getItem('Bearer');
-    console.log(this.bearer);
     if (cookieRoomID === urlRoomID) {
       if (this.bearer !== null) {
         this.roomID = this.cookieservice.get('RoomID');
         this.getNext();
-        console.log(this.song);
-        //this.playSong('1LGv7Ah6TXp1soAAIzzuGC');
       } else {
         alert("Token nicht vorhanden!");
         this.router.navigate(['/settings']);
